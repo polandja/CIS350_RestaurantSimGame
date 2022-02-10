@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+//Restaurant Panel Class
 public class RestaurantPanel extends JPanel {
     JButton bunButton;
 
