@@ -1,5 +1,6 @@
 import javax.swing.*;
 
+// Restaurant GUI class
 public class RestaurantGUI {
     public static void main(String[] args) {
         JMenu fileMenu;
