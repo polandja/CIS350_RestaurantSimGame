@@ -21,9 +21,9 @@ public class RestaurantGUI {
         RestaurantPanelMain panel = new RestaurantPanelMain(quitItem);
         gui.getContentPane().add(panel);
 
-        gui.setSize(600, 400);
-        gui.setJMenuBar(menus);
         gui.pack();
+        gui.setSize(1000, 800);
+        gui.setJMenuBar(menus);
         gui.setVisible(true);
     }
 }
