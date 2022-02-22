@@ -14,13 +14,22 @@ public class orderInProgress {
         playerOrder.add(ingre);
     }
 
-    //removes all ingredients from the playerOrder
+    //method, removes all ingredients from the playerOrder
     public void trash(){
         playerOrder.clear();
     }
 
+    public boolean checkCorrect(ArrayList<String> inCustOrder){
+        if(inCustOrder.equals(playerOrder)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
     //submit method
-        //checksCorrect - checks to see if playerOrder is === custOrder
+        //call checksCorrect - checks to see if playerOrder is === custOrder
         //if correct, next customer + trash playerOrder
         //else trash playerOrder
     

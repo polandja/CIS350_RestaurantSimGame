@@ -35,7 +35,4 @@ public class menuItem {
         this.recipe = newRecipe;
     }
 
-
-
-
 }
