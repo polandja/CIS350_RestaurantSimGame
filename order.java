@@ -15,12 +15,11 @@ public class order {
         this.custOrder = inOrder;
     }
 
-    //nextOrder
-    public void nextOrder(ArrayList<menuItem> inMenu){
-        //pick random menuItem from Menu and acces the recipe
-        //then assign that recipe to custOrder
-        //Math.random() * (max - min + 1) + min  
-        int randIndex = (int)(Math.random() * ( inMenu.size() + 1));
+    //picks a random menuItem from Menu and acceses the recipe
+    //then assign that recipe to custOrder
+    public void nextOrder(ArrayList<menuItem> inMenu){ 
+        int randIndex = (int)(Math.random() * inMenu.size());
+        custOrder = inMenu.get(randIndex).getRecipe();
     }
 
 
