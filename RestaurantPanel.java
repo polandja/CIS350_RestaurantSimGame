@@ -10,51 +10,111 @@ public class RestaurantPanel extends JPanel {
     JButton bunButton;
     JButton pattyButton;
     JButton cheeseButton;
-    JButton recipeBook;
     JButton clearButton;
+    JButton submitButton;
+    JButton recipeBook;
+
+    JTextArea orderText;
+
+    JLabel restaurantBackground;
+    ImageIcon restaurantImage;
 
     public RestaurantPanel() {
+        setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+
+        // Bun Button
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        gbc.ipadx = 20;
+        gbc.ipady = 40;
+
         bunButton = new JButton("Bun");
-        bunButton.setAlignmentY(1f);
-        add(bunButton);
+        add(bunButton, gbc);
+
+        // Patty Button
+        gbc.gridx = 1;
+        gbc.gridy = 2;
 
         pattyButton = new JButton("Patty");
-        add(pattyButton);
+        add(pattyButton, gbc);
+
+        // Cheese Button
+        gbc.gridx = 2;
+        gbc.gridy = 2;
 
         cheeseButton = new JButton("Cheese");
-        add(cheeseButton);
+        add(cheeseButton, gbc);
 
-        recipeBook = new JButton("Recipe Book");
-        add(recipeBook);
+        // Clear Button
+        gbc.gridx = 0;
+        gbc.gridy = 3;
 
         clearButton = new JButton("Clear");
-        add(clearButton);
+        add(clearButton, gbc);
+
+        // Submit Button
+        gbc.gridx = 1;
+        gbc.gridy = 3;
+
+        submitButton = new JButton("Submit");
+        add(submitButton, gbc);
+
+        // Recipe Book
+        gbc.gridx = 2;
+        gbc.gridy = 3;
+
+        recipeBook = new JButton("Recipe Book");
+        add(recipeBook, gbc);
+
+        // Order Text
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+
+        orderText = new JTextArea(1, 20);
+        orderText.setEditable(false);
+        add(orderText, gbc);
+
+        // Restaurant Image        
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+
+        restaurantImage = new ImageIcon(getClass().getResource("Burger Restaurant.jpg"));
+        restaurantBackground = new JLabel(restaurantImage);
+        add(restaurantBackground, gbc);
 
         bunButton.addActionListener(new ButtonListener());
         pattyButton.addActionListener(new ButtonListener());
         cheeseButton.addActionListener(new ButtonListener());
-        recipeBook.addActionListener(new ButtonListener());
         clearButton.addActionListener(new ButtonListener());
+        submitButton.addActionListener(new ButtonListener());
+        recipeBook.addActionListener(new ButtonListener());
     }
 
     private class ButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent event) {
             if (event.getSource() == bunButton) {
-                System.out.println("Hamburger Bun");
+                //currentOrder.addIngredient("Bun");
+                orderText.append("Bun ");
             }
             if (event.getSource() == pattyButton) {
-                System.out.println("Beef Patty");
+                //currentOrder.addIngredient("Patty");
+                orderText.append("Patty ");
             }
             if (event.getSource() == cheeseButton) {
-                System.out.println("Cheddar Cheese");
+                //currentOrder.addIngredient("Cheese");
+                orderText.append("Cheese ");
+            }
+            if (event.getSource() == clearButton) {
+                //currentOrder.trash();
+                orderText.setText("");
+            }
+            if (event.getSource() == submitButton) {
+                System.out.println("Submit!");
             }
             if (event.getSource() == recipeBook) {
                 RecipeBook recipeBookWindow = new RecipeBook();
             }
-            if (event.getSource() == clearButton) {
-                currentOrder.trash();
-            }
-
         }
     }
 }
