@@ -5,7 +5,7 @@ public class orderInProgress {
     private ArrayList<String> playerOrder;
 
     //default constructor creating empty playerOrder
-    public void orderInProgress(){
+    public orderInProgress(){
         this.playerOrder = new ArrayList<String>() ;
     }
 

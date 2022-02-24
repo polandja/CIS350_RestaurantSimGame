@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 //Restaurant Panel Class
 public class RestaurantPanel extends JPanel {
-    private orderInProgress currentOrder;
+    private orderInProgress currentOrder = new orderInProgress();
     
     JButton bunButton;
     JButton pattyButton;
@@ -102,7 +102,7 @@ public class RestaurantPanel extends JPanel {
                 orderText.append("Patty ");
             }
             if (event.getSource() == cheeseButton) {
-                //currentOrder.addIngredient("Cheese");
+                currentOrder.addIngredient("Cheese");
                 orderText.append("Cheese ");
             }
             if (event.getSource() == clearButton) {
