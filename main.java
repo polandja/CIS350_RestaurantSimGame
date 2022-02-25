@@ -7,11 +7,11 @@ class main{
         //---------------------------------------------
         
         //initializing burger
-        ArrayList<String> burgerRec = new ArrayList<String>(Arrays.asList("bun", "patty", "bun"));
+        ArrayList<String> burgerRec = new ArrayList<String>(Arrays.asList("Bun", "Patty", "Bun"));
         menuItem burger = new menuItem("burger", 10, burgerRec);
 
         //initializing cheeseburger
-        ArrayList<String> cheeseBurgerRec = new ArrayList<String>(Arrays.asList("bun", "patty","cheese", "bun"));
+        ArrayList<String> cheeseBurgerRec = new ArrayList<String>(Arrays.asList("Bun", "Patty", "Cheese", "Bun"));
         menuItem cheeseBurger = new menuItem("cheese burger", 12, cheeseBurgerRec);
 
         //Initializing the menu

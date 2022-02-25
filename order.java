@@ -3,7 +3,7 @@ public class order {
     private ArrayList<String> custOrder;
 
     //default constructor creating empty playerOrder
-    public void custOrder(){
+    public order(){
         this.custOrder = new ArrayList<String>() ;
     }
 

@@ -93,23 +93,29 @@ public class RestaurantPanel extends JPanel {
 
     private class ButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent event) {
+            // Bun Button
             if (event.getSource() == bunButton) {
-                //currentOrder.addIngredient("Bun");
+                currentOrder.addIngredient("Patty");
                 orderText.append("Bun ");
             }
+            // Patty Button
             if (event.getSource() == pattyButton) {
-                //currentOrder.addIngredient("Patty");
+                currentOrder.addIngredient("Patty");
                 orderText.append("Patty ");
             }
+            // Cheese Button
             if (event.getSource() == cheeseButton) {
                 currentOrder.addIngredient("Cheese");
                 orderText.append("Cheese ");
             }
+            // Clear Button
             if (event.getSource() == clearButton) {
-                //currentOrder.trash();
+                currentOrder.trash();
                 orderText.setText("");
             }
+            // Submit Button
             if (event.getSource() == submitButton) {
+                //currentOrder.submit(expected, inMenu);
                 System.out.println("Submit!");
             }
             if (event.getSource() == recipeBook) {
