@@ -128,7 +128,7 @@ public class RestaurantPanel extends JPanel {
             }
             // Submit Button
             if (event.getSource() == submitButton) {
-                playerOrder.submit(custOrder, menu);
+                //playerOrder.submit(custOrder, menu);
                 playerText.setText("");
                 custText.setText("blah");
             }
