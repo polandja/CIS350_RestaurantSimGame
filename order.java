@@ -2,9 +2,12 @@ import java.util.*;
 public class order {
     private ArrayList<String> custOrder;
 
-    //default constructor creating empty playerOrder
+    //default constructor creating empty custOrder
     public order(){
         this.custOrder = new ArrayList<String>() ;
+        custOrder.add("Bun");
+        custOrder.add("Patty");
+        custOrder.add("Bun");
     }
 
     public ArrayList<String> getCustOrder(){
