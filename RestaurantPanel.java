@@ -9,6 +9,17 @@ import java.awt.event.ActionListener;
 public class RestaurantPanel extends JPanel {
     private orderInProgress playerOrder = new orderInProgress();
     private order custOrder = new order();
+
+    // Initializing Hamburger
+    ArrayList<String> burgerRec = new ArrayList<String>(Arrays.asList("Bun", "Patty", "Bun"));
+    menuItem burger = new menuItem("burger", 10, burgerRec);
+
+    // Initializing Cheeseburger
+    ArrayList<String> cheeseBurgerRec = new ArrayList<String>(Arrays.asList("Bun", "Patty", "Cheese", "Bun"));
+    menuItem cheeseBurger = new menuItem("cheese burger", 12, cheeseBurgerRec);
+
+    // Initializing the Menu
+    ArrayList<menuItem> menu = new ArrayList<menuItem>(Arrays.asList(burger, cheeseBurger));
     
     JButton bunButton;
     JButton pattyButton;
@@ -73,7 +84,7 @@ public class RestaurantPanel extends JPanel {
 
         // Customer Text
         gbc.gridx = 0;
-        gbc.gridy = 1;
+        gbc.gridy = 0;
 
         custText = new JTextArea(1, 20);
         custText.setEditable(false);
@@ -108,7 +119,7 @@ public class RestaurantPanel extends JPanel {
         public void actionPerformed(ActionEvent event) {
             // Bun Button
             if (event.getSource() == bunButton) {
-                playerOrder.addIngredient("Patty");
+                playerOrder.addIngredient("Bun");
                 playerText.append("Bun ");
             }
             // Patty Button
@@ -128,9 +139,19 @@ public class RestaurantPanel extends JPanel {
             }
             // Submit Button
             if (event.getSource() == submitButton) {
-                //playerOrder.submit(custOrder, menu);
                 playerText.setText("");
-                custText.setText("blah");
+                if (playerOrder.checkCorrect(custOrder.getCustOrder())) {
+                    custText.setText("Correct!");
+                    playerOrder.submit(custOrder, menu);
+                    custOrder.nextOrder(menu);
+                    System.out.println(custOrder.getCustOrder());
+                }
+                else {
+                    custText.setText("Incorrect, try again!");
+                    playerOrder.submit(custOrder, menu);
+                    custOrder.nextOrder(menu);
+                    System.out.println(custOrder.getCustOrder());
+                }
             }
             if (event.getSource() == recipeBook) {
                 RecipeBook recipeBookWindow = new RecipeBook();
