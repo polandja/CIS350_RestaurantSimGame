@@ -54,11 +54,6 @@ public class OrderInProgress {
      * @param inMenu
      */
     public void submit(Order expected, ArrayList<MenuItem> inMenu){
-        this.trash();
-    //submit method- called on a player order object.
-    //which needs to be created by first constructing every menu item (ie burger),
-    //and then creating an array of those items to pass to the submit method
-    public void submit(order expected, ArrayList<menuItem> inMenu){
         if(this.checkCorrect(expected.getCustOrder())){
             expected.nextOrder(inMenu);
             //numOrder++
