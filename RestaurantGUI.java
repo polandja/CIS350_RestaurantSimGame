@@ -1,3 +1,4 @@
+import java.util.*;
 import javax.swing.*;
 
 // Restaurant GUI class
@@ -22,7 +23,7 @@ public class RestaurantGUI {
         gui.getContentPane().add(panel);
 
         gui.pack();
-        gui.setSize(1000, 800);
+        gui.setSize(1200, 800);
         gui.setJMenuBar(menus);
         gui.setVisible(true);
     }

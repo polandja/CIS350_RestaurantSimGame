@@ -54,6 +54,7 @@ public class OrderInProgress {
      * @param inMenu
      */
     public void submit(Order expected, ArrayList<MenuItem> inMenu){
+        this.trash();
         if(this.checkCorrect(expected.getCustOrder())){
             expected.nextOrder(inMenu);
             //numOrder++
