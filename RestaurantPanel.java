@@ -7,8 +7,8 @@ import java.awt.event.ActionListener;
 
 //Restaurant Panel Class
 public class RestaurantPanel extends JPanel {
-    private orderInProgress playerOrder = new orderInProgress();
-    private order custOrder = new order();
+    private OrderInProgress playerOrder = new OrderInProgress();
+    private Order custOrder = new Order();
 
     // Initializing Hamburger
     ArrayList<String> burgerRec = new ArrayList<String>(Arrays.asList("Bun", "Patty", "Bun"));
