@@ -79,7 +79,7 @@ public class RestaurantPanel extends JPanel {
         gbc.gridx = 1;
         gbc.gridy = 1;
 
-        restaurantImage = new ImageIcon(getClass().getResource("Burger Restaurant.jpg"));
+        restaurantImage = new ImageIcon(getClass().getResource("RestaurantImage.jpg"));
         restaurantBackground = new JLabel(restaurantImage);
         add(restaurantBackground, gbc);
 
