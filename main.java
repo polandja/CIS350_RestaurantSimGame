@@ -1,20 +1,22 @@
 import java.util.*;
 
-class main{
-    //Menu... where to put it? it's an array storing the menuItems
+class Main{
+    //Menu... where to put it? it's an array storing the MenuItems
     public static void main(String[] args) {
-        //creating the different menuItem objects
+        //creating the different MenuItem objects
         //---------------------------------------------
         
         //initializing burger
+        //round 1 menu item 
         ArrayList<String> burgerRec = new ArrayList<String>(Arrays.asList("Bun", "Patty", "Bun"));
-        menuItem burger = new menuItem("burger", 10, burgerRec);
+        MenuItem burger = new MenuItem("burger", 10, burgerRec);
 
         //initializing cheeseburger
+        //round 1 menu item 
         ArrayList<String> cheeseBurgerRec = new ArrayList<String>(Arrays.asList("Bun", "Patty", "Cheese", "Bun"));
-        menuItem cheeseBurger = new menuItem("cheese burger", 12, cheeseBurgerRec);
+        MenuItem cheeseBurger = new MenuItem("cheese burger", 12, cheeseBurgerRec);
 
         //Initializing the menu
-        ArrayList<menuItem> menu = new ArrayList<menuItem>(Arrays.asList(burger, cheeseBurger));
+        ArrayList<MenuItem> menu = new ArrayList<MenuItem>(Arrays.asList(burger, cheeseBurger));
     }
 }

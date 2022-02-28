@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 //Restaurant Panel Class
 public class RestaurantPanel extends JPanel {
-    private orderInProgress currentOrder = new orderInProgress();
+    private OrderInProgress currentOrder = new OrderInProgress();
     
     JButton bunButton;
     JButton pattyButton;
