@@ -54,12 +54,14 @@ public class OrderInProgress {
      * @param inMenu
      */
     public void submit(Order expected, ArrayList<MenuItem> inMenu){
-        this.trash();
         if(this.checkCorrect(expected.getCustOrder())){
+            //player order was correct
             expected.nextOrder(inMenu);
+            System.out.println("In submit if statement");
             //numOrder++
         }
         this.trash();
+        //player was incorrect
         //possible penalty goes here
     }
     

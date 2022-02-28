@@ -1,6 +1,7 @@
 import java.util.*;
 public class Order {
     private ArrayList<String> custOrder;
+    private MenuItem currMenuItem;
 
     //default constructor creating empty custOrder
     public Order(){
@@ -27,6 +28,22 @@ public class Order {
     }
 
     /**
+     * getter method-
+     * @return currMenuItem
+     */
+    public MenuItem getCurrMenuItem(){
+        return currMenuItem; 
+    }
+
+    /**
+     * setter method- 
+     * @param currMenuItem
+     */
+    public void setCurrMenuItem(MenuItem inItem){
+        this.currMenuItem = inItem;
+    }
+
+    /**
      * method nextOder-
      * picks a random MenuItem from Menu and acceses the recipe
      * then assign that recipe to custOrder
@@ -34,6 +51,7 @@ public class Order {
     public void nextOrder(ArrayList<MenuItem> inMenu){ 
         int randIndex = (int)(Math.random() * inMenu.size());
         custOrder = inMenu.get(randIndex).getRecipe();
+        currMenuItem = inMenu.get(randIndex);
     }
 
 
