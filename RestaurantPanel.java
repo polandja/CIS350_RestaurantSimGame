@@ -1,11 +1,26 @@
+import java.util.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 //Restaurant Panel Class
 public class RestaurantPanel extends JPanel {
     private OrderInProgress currentOrder = new OrderInProgress();
+    private OrderInProgress playerOrder = new OrderInProgress();
+    private Order custOrder = new Order();
+
+    // Initializing Hamburger
+    ArrayList<String> burgerRec = new ArrayList<String>(Arrays.asList("Bun", "Patty", "Bun"));
+    MenuItem burger = new MenuItem("burger", 10, burgerRec);
+
+    // Initializing Cheeseburger
+    ArrayList<String> cheeseBurgerRec = new ArrayList<String>(Arrays.asList("Bun", "Patty", "Cheese", "Bun"));
+    MenuItem cheeseBurger = new MenuItem("cheese burger", 12, cheeseBurgerRec);
+
+    // Initializing the Menu
+    ArrayList<MenuItem> menu = new ArrayList<MenuItem>(Arrays.asList(burger, cheeseBurger));
     
     JButton bunButton;
     JButton pattyButton;
@@ -14,7 +29,8 @@ public class RestaurantPanel extends JPanel {
     JButton submitButton;
     JButton recipeBook;
 
-    JTextArea orderText;
+    JTextArea custText;
+    JTextArea playerText;
 
     JLabel restaurantBackground;
     ImageIcon restaurantImage;
@@ -67,13 +83,22 @@ public class RestaurantPanel extends JPanel {
         recipeBook = new JButton("Recipe Book");
         add(recipeBook, gbc);
 
-        // Order Text
+        // Customer Text
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+
+        custText = new JTextArea(1, 20);
+        custText.setEditable(false);
+        add(custText, gbc);
+        custText.append("Hi, can I get a Hamburger?");
+        
+        // Player Text
         gbc.gridx = 1;
         gbc.gridy = 0;
 
-        orderText = new JTextArea(1, 20);
-        orderText.setEditable(false);
-        add(orderText, gbc);
+        playerText = new JTextArea(1, 20);
+        playerText.setEditable(false);
+        add(playerText, gbc);
 
         // Restaurant Image        
         gbc.gridx = 1;
@@ -95,28 +120,39 @@ public class RestaurantPanel extends JPanel {
         public void actionPerformed(ActionEvent event) {
             // Bun Button
             if (event.getSource() == bunButton) {
-                currentOrder.addIngredient("Patty");
-                orderText.append("Bun ");
+                playerOrder.addIngredient("Bun");
+                playerText.append("Bun ");
             }
             // Patty Button
             if (event.getSource() == pattyButton) {
-                currentOrder.addIngredient("Patty");
-                orderText.append("Patty ");
+                playerOrder.addIngredient("Patty");
+                playerText.append("Patty ");
             }
             // Cheese Button
             if (event.getSource() == cheeseButton) {
-                currentOrder.addIngredient("Cheese");
-                orderText.append("Cheese ");
+                playerOrder.addIngredient("Cheese");
+                playerText.append("Cheese ");
             }
             // Clear Button
             if (event.getSource() == clearButton) {
-                currentOrder.trash();
-                orderText.setText("");
+                playerOrder.trash();
+                playerText.setText("");
             }
             // Submit Button
             if (event.getSource() == submitButton) {
-                //currentOrder.submit(expected, inMenu);
-                System.out.println("Submit!");
+                playerText.setText("");
+                if (playerOrder.checkCorrect(custOrder.getCustOrder())) {
+                    custText.setText("Correct!");
+                    playerOrder.submit(custOrder, menu);
+                    custOrder.nextOrder(menu);
+                    System.out.println(custOrder.getCustOrder());
+                }
+                else {
+                    custText.setText("Incorrect, try again!");
+                    playerOrder.submit(custOrder, menu);
+                    custOrder.nextOrder(menu);
+                    System.out.println(custOrder.getCustOrder());
+                }
             }
             if (event.getSource() == recipeBook) {
                 RecipeBook recipeBookWindow = new RecipeBook();
