@@ -21,7 +21,7 @@ public class orderInProgress {
 
     //checks if the player made the order correctly
     public boolean checkCorrect(ArrayList<String> inCustOrder){
-        if(inCustOrder.equals(playerOrder)){
+        if(inCustOrder.equals(this.playerOrder)){
             return true;
         }
         else{
@@ -34,12 +34,12 @@ public class orderInProgress {
     //which needs to be created by first constructing every menu item (ie burger),
     //and then creating an array of those items to pass to the submit method
     public void submit(order expected, ArrayList<menuItem> inMenu){
-        this.trash();
         if(this.checkCorrect(expected.getCustOrder())){
             expected.nextOrder(inMenu);
             //money++
             //numOrder++
         }
+        this.trash();
         //possible penalty goes here
     }
     
