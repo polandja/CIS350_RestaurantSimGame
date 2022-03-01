@@ -1,7 +1,6 @@
 import java.util.*;
 public class MenuItem {
     private String name;
-    //private int MenuItemID;
     private double price;
     private ArrayList<String> recipe;
 
