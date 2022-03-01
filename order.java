@@ -5,10 +5,14 @@ public class Order {
 
     //default constructor creating empty custOrder
     public Order(){
-        this.custOrder = new ArrayList<String>() ;
+        this.custOrder = new ArrayList<>() ;
         custOrder.add("Bun");
         custOrder.add("Patty");
         custOrder.add("Bun");
+        
+        ArrayList<String> burgerRec = new ArrayList<>(Arrays.asList("Bun", "Patty", "Bun"));
+        MenuItem burger = new MenuItem("burger", 10, burgerRec);
+        this.currMenuItem = burger;
     }
 
     /**
@@ -50,15 +54,9 @@ public class Order {
      */
     public void nextOrder(ArrayList<MenuItem> inMenu){ 
         int randIndex = (int)(Math.random() * inMenu.size());
+        
         custOrder = inMenu.get(randIndex).getRecipe();
         currMenuItem = inMenu.get(randIndex);
-    }
-
-
-
-    //Menu... where to put it? it's an array storing the MenuItems
-    public static void main(String[] args) {
-
     }
 }
 
