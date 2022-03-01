@@ -18,7 +18,7 @@ public class MenuItem {
 
     /**
      * getter getName
-     * @return name of MenuItem
+     * @return String name of MenuItem
      */
     public String getName(){
         return this.name;
@@ -26,7 +26,7 @@ public class MenuItem {
 
     /**
      * getter method
-     * @return price of MenuItem
+     * @return Double price of MenuItem
      */
     public double getPrice(){
         return this.price;
@@ -34,7 +34,7 @@ public class MenuItem {
 
     /**
      * getter method 
-     * @return a string list of ingredients of MenuItem
+     * @return StringList of ingredients of MenuItem
      */
     public ArrayList<String> getRecipe(){
         return this.recipe;
