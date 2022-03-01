@@ -4,7 +4,6 @@ public class MenuItem {
     private double price;
     private ArrayList<String> recipe;
 
-    
     /**
      * constructor MenuItem
      * @param inName

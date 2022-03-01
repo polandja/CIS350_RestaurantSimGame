@@ -13,11 +13,11 @@ public class RestaurantPanel extends JPanel {
 
     // Initializing Hamburger
     ArrayList<String> burgerRec = new ArrayList<String>(Arrays.asList("Bun", "Patty", "Bun"));
-    MenuItem burger = new MenuItem("burger", 10, burgerRec);
+    MenuItem burger = new MenuItem("Hamburger", 10, burgerRec);
 
     // Initializing Cheeseburger
     ArrayList<String> cheeseBurgerRec = new ArrayList<String>(Arrays.asList("Bun", "Patty", "Cheese", "Bun"));
-    MenuItem cheeseBurger = new MenuItem("cheese burger", 12, cheeseBurgerRec);
+    MenuItem cheeseBurger = new MenuItem("Cheeseburger", 12, cheeseBurgerRec);
 
     // Initializing the Menu
     ArrayList<MenuItem> menu = new ArrayList<MenuItem>(Arrays.asList(burger, cheeseBurger));
@@ -142,16 +142,14 @@ public class RestaurantPanel extends JPanel {
             if (event.getSource() == submitButton) {
                 playerText.setText("");
                 if (playerOrder.checkCorrect(custOrder.getCustOrder())) {
-                    custText.setText("Correct!");
                     playerOrder.submit(custOrder, menu);
                     custOrder.nextOrder(menu);
-                    System.out.println(custOrder.getCustOrder());
+                    custText.setText("Hi, can I get a " + custOrder.getCurrMenuItem().getName() + "?");
                 }
                 else {
                     custText.setText("Incorrect, try again!");
                     playerOrder.submit(custOrder, menu);
-                    custOrder.nextOrder(menu);
-                    System.out.println(custOrder.getCustOrder());
+                    //custOrder.nextOrder(menu);
                 }
             }
             if (event.getSource() == recipeBook) {
