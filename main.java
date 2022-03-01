@@ -8,15 +8,15 @@ class Main{
         
         //initializing burger
         //round 1 menu item 
-        ArrayList<String> burgerRec = new ArrayList<String>(Arrays.asList("Bun", "Patty", "Bun"));
+        ArrayList<String> burgerRec = new ArrayList<>(Arrays.asList("Bun", "Patty", "Bun"));
         MenuItem burger = new MenuItem("burger", 10, burgerRec);
 
         //initializing cheeseburger
         //round 1 menu item 
-        ArrayList<String> cheeseBurgerRec = new ArrayList<String>(Arrays.asList("Bun", "Patty", "Cheese", "Bun"));
+        ArrayList<String> cheeseBurgerRec = new ArrayList<>(Arrays.asList("Bun", "Patty", "Cheese", "Bun"));
         MenuItem cheeseBurger = new MenuItem("cheese burger", 12, cheeseBurgerRec);
 
         //Initializing the menu
-        ArrayList<MenuItem> menu = new ArrayList<MenuItem>(Arrays.asList(burger, cheeseBurger));
+        ArrayList<MenuItem> menu = new ArrayList<>(Arrays.asList(burger, cheeseBurger));
     }
 }
