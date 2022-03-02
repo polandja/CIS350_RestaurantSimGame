@@ -111,8 +111,74 @@ public class RestaurantTest{
     }
 
     //--------tests for orderInProgress class-----------------------
-    @Test
-    public void testAddIngrediant() {
-        
+
+    @Test //tests getPlayerOrder and orderInProgress Consrtuctor
+    public void testGetPlayerOrder() {
+        OrderInProgress worker = new OrderInProgress();
+        ArrayList ex = new ArrayList<>();
+        assertEquals(worker.getPlayerOrder(), ex);
     }
+
+    @Test //tests the add ingredient method
+    public void testAddIngrediant() {
+        OrderInProgress worker = new OrderInProgress();
+        ArrayList ex = new ArrayList<>();
+
+        ex.add("bun");
+        worker.addIngredient("bun");
+        assertEquals(worker.getPlayerOrder(), ex);
+    }
+
+    @Test //tests the trash button
+    public void testTrash() {
+        OrderInProgress worker = new OrderInProgress();
+        ArrayList ex = new ArrayList<>();
+
+        ex.add("bun");
+        worker.addIngredient("bun");
+        assertEquals(worker.getPlayerOrder(), ex);
+
+        ex.clear();
+        worker.trash();
+        assertEquals(worker.getPlayerOrder(), ex);
+    }
+
+    @Test //tests checksCorrect
+    public void testChecksCorrectWrong(){
+        ArrayList<String> burgerRec = new ArrayList<>(Arrays.asList("Bun", "Patty", "Bun"));
+        MenuItem burger = new MenuItem("burger", 10, burgerRec);
+        ArrayList<String> cheeseBurgerRec = new ArrayList<>(Arrays.asList("Bun", "Patty", "Cheese", "Bun"));
+        MenuItem cheeseBurger = new MenuItem("cheese burger", 12, cheeseBurgerRec);
+        ArrayList<MenuItem> menu = new ArrayList<>(Arrays.asList(burger, cheeseBurger));
+
+        OrderInProgress worker = new OrderInProgress();
+        worker.addIngredient("Bun");
+
+        Order customer = new Order();
+
+        boolean test = worker.checkCorrect(customer.getCustOrder());
+        boolean expected = false;
+        assertEquals(test, false);
+    }
+
+    @Test //tests checksCorrect
+    public void testChecksCorrectRight(){
+        ArrayList<String> burgerRec = new ArrayList<>(Arrays.asList("Bun", "Patty", "Bun"));
+        MenuItem burger = new MenuItem("burger", 10, burgerRec);
+        ArrayList<String> cheeseBurgerRec = new ArrayList<>(Arrays.asList("Bun", "Patty", "Cheese", "Bun"));
+        MenuItem cheeseBurger = new MenuItem("cheese burger", 12, cheeseBurgerRec);
+        ArrayList<MenuItem> menu = new ArrayList<>(Arrays.asList(burger, cheeseBurger));
+
+        OrderInProgress worker = new OrderInProgress();
+        worker.addIngredient("Bun");
+        worker.addIngredient("Patty");
+        worker.addIngredient("Bun");
+
+        Order customer = new Order();
+
+        boolean test = worker.checkCorrect(customer.getCustOrder());
+        boolean expected = true;
+        assertEquals(worker.checkCorrect(customer.getCustOrder()), true);
+    }
+    
 }

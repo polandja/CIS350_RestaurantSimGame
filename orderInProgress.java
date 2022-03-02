@@ -68,7 +68,7 @@ public class OrderInProgress {
         if (this.checkCorrect(expected.getCustOrder())) {
             // player order was correct
             expected.nextOrder(inMenu);
-            System.out.println("In submit if statement");
+            //System.out.println("In submit if statement");
             // numOrder++
         }
         this.trash();
