@@ -57,7 +57,7 @@ public class RestaurantTest{
         assertEquals(customer.getCustOrder(), customer.getCurrMenuItem().getRecipe());
     }
 
-    @Test
+    @Test //tests to make sure nextOrder assigns a menuItem within the menu 
     public void testNextOrder() {
         ArrayList<String> burgerRec = new ArrayList<>(Arrays.asList("Bun", "Patty", "Bun"));
         MenuItem burger = new MenuItem("burger", 10, burgerRec);
@@ -108,5 +108,11 @@ public class RestaurantTest{
         customer.setCustOrder(burgerRec);
         assertEquals(burgerRec, customer.getCustOrder());
 
+    }
+
+    //--------tests for orderInProgress class-----------------------
+    @Test
+    public void testAddIngrediant() {
+        
     }
 }

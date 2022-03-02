@@ -144,10 +144,12 @@ public class RestaurantPanel extends JPanel {
                 if (playerOrder.checkCorrect(custOrder.getCustOrder())) {
                     playerOrder.submit(custOrder, menu);
                     custOrder.nextOrder(menu);
-                    custText.setText("Hi, can I get a " + custOrder.getCurrMenuItem().getName() + "?");
+                    custText.setText("");
+                    custText.append("Thank you!");
+                    custText.append("\nHi, can I get a " + custOrder.getCurrMenuItem().getName() + "?");
                 }
                 else {
-                    custText.setText("Incorrect, try again!");
+                    custText.append("\nThat's not what I ordered!");
                     playerOrder.submit(custOrder, menu);
                     //custOrder.nextOrder(menu);
                 }
