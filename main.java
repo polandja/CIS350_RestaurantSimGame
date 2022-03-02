@@ -2,7 +2,7 @@ import java.util.*;
 
 class Main{
     //Menu... where to put it? it's an array storing the MenuItems
-    public static void main(String[] args) {
+    public static void Main(String[] args) {
         //creating the different MenuItem objects
         //---------------------------------------------
         
