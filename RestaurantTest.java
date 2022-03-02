@@ -94,6 +94,8 @@ public class RestaurantTest{
         MenuItem cheeseburger = new MenuItem("cheese burger", 12, cheeseBurgerRec);
         customer.setCurrMenuItem(cheeseburger);
 
+        assertEquals(cheeseburger, customer.getCurrMenuItem());
+
     }
 
     @Test
@@ -140,7 +142,7 @@ public class RestaurantTest{
 
         ex.clear();
         worker.trash();
-        assertEquals(worker.getPlayerOrder(), ex);
+        assertTrue(worker.getPlayerOrder().isEmpty());
     }
 
     @Test //tests checksCorrect
@@ -161,7 +163,7 @@ public class RestaurantTest{
         assertEquals(test, false);
     }
 
-    @Test //tests checksCorrect
+    @Test //tests checksCorrect method
     public void testChecksCorrectRight(){
         ArrayList<String> burgerRec = new ArrayList<>(Arrays.asList("Bun", "Patty", "Bun"));
         MenuItem burger = new MenuItem("burger", 10, burgerRec);
@@ -176,9 +178,34 @@ public class RestaurantTest{
 
         Order customer = new Order();
 
-        boolean test = worker.checkCorrect(customer.getCustOrder());
-        boolean expected = true;
         assertEquals(worker.checkCorrect(customer.getCustOrder()), true);
+    }
+
+    @Test //tests submit method
+    public void testSubmit(){
+        ArrayList<String> burgerRec = new ArrayList<>(Arrays.asList("Bun", "Patty", "Bun"));
+        MenuItem burger = new MenuItem("burger", 10, burgerRec);
+        ArrayList<String> cheeseBurgerRec = new ArrayList<>(Arrays.asList("Bun", "Patty", "Cheese", "Bun"));
+        MenuItem cheeseBurger = new MenuItem("cheese burger", 12, cheeseBurgerRec);
+        ArrayList<MenuItem> menu = new ArrayList<>(Arrays.asList(burger, cheeseBurger));
+
+        Order customer = new Order();
+        OrderInProgress worker = new OrderInProgress();
+        worker.addIngredient("Bun");
+        worker.addIngredient("Patty");
+        worker.addIngredient("Bun");
+
+        worker.submit(customer, menu);
+        assertTrue(worker.getPlayerOrder().isEmpty()); //makes sure submit clears players order
+        boolean test = false;
+        for (MenuItem element : menu) {
+            if (element == customer.getCurrMenuItem()) {
+                test = true;
+                break;
+            }
+        }
+
+        assertTrue(test);
     }
     
 }
