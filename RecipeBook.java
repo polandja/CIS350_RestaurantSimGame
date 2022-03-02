@@ -1,6 +1,17 @@
 import javax.swing.*;
 
+/*************************************************************
+ * Class RecipeBook of Restuarant Simulation Game
+ * <p>
+ * Assistive class to the GUI.
+ * <p>
+ * Contains the dishes/ recipes able to be ordered/ created. 
+ * 
+ * @author Claire Grob, Hanna Halstead, & Jacqueline Poland
+ * @version March 4, 2022
+ ************************************************************/
 public class RecipeBook {
+    
     JFrame recipeBookFrame = new JFrame("Recipe Book");
     JTextField recipeBookText1 = new JTextField();
     JTextField recipeBookText2 = new JTextField();
