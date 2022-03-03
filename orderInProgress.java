@@ -14,7 +14,7 @@ public class OrderInProgress {
 
     /**
      * method addIngredient- 
-     * puts ingre AKA ingrient into playerOrder
+     * puts ingre AKA ingrdient into playerOrder
      * @param ingre
      */
     public void addIngredient(String ingre){
