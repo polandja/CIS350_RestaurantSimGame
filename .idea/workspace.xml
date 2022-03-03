@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="87505069-b15a-4cd0-b0cf-11793ac58699" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="25tZrG2IOhAqvH2pq1q49Wev4uj" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="87505069-b15a-4cd0-b0cf-11793ac58699" name="Default Changelist" comment="" />
+      <created>1646348542874</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1646348542874</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="625" y="301" key="FileChooserDialogImpl" timestamp="1646348707796">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="625" y="301" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1646348707796" />
+    <state width="623" height="498" key="SwitcherDM" timestamp="1646348732894">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="623" height="498" key="SwitcherDM/0.0.1920.1032@0.0.1920.1032" timestamp="1646348732894" />
+  </component>
+</project>
