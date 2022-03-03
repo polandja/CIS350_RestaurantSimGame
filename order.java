@@ -15,7 +15,9 @@ public class Order {
     private ArrayList<String> custOrder;
     private MenuItem currMenuItem;
 
-    //default constructor creating empty custOrder
+    /**
+     * Constructor Order, makes a default order with a menuItem and recipe.
+     */
     public Order(){
         this.custOrder = new ArrayList<>() ;
         custOrder.add("Bun");
@@ -28,7 +30,8 @@ public class Order {
     }
 
     /**
-     * getter method-
+     * Getter method, retreives the custOrder.
+     * 
      * @return custOrder
      */
     public ArrayList<String> getCustOrder(){
@@ -36,33 +39,37 @@ public class Order {
     }
 
     /**
-     * setter method- 
-     * @param inOrder
+     * Setter method, sets a new custOrder.
+     * 
+     * @param inOrder  the new recipe order that will be set
      */
     public void setCustOrder(ArrayList<String> inOrder){
         this.custOrder = inOrder;
     }
 
     /**
-     * getter method-
-     * @return currMenuItem
+     * Getter method, retrieves the currMenuItem.
+     * 
+     * @return  currMenuItem
      */
     public MenuItem getCurrMenuItem(){
         return currMenuItem; 
     }
 
     /**
-     * setter method- 
-     * @param currMenuItem
+     * Setter method, sets a new currMenuItem.
+     * 
+     * @param inItem  the new menu Item
      */
     public void setCurrMenuItem(MenuItem inItem){
         this.currMenuItem = inItem;
     }
 
     /**
-     * method nextOder-
-     * picks a random MenuItem from Menu and acceses the recipe
-     * then assign that recipe to custOrder
+     * Method nextOder, picks a random MenuItem from Menu and acceses the recipe.
+     * Then it assigns that recipe to custOrder
+     * 
+     * @param inMenu the new menu that it will be set to
      */
     public void nextOrder(ArrayList<MenuItem> inMenu){ 
         int randIndex = (int)(Math.random() * inMenu.size());
