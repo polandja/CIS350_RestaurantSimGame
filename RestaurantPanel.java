@@ -17,8 +17,10 @@ import java.awt.event.ActionListener;
  ************************************************************/
 public class RestaurantPanel extends JPanel {
     
-    private OrderInProgress currentOrder = new OrderInProgress();
+    // New OrderInProgress playerOrder
     private OrderInProgress playerOrder = new OrderInProgress();
+    
+    // New Order custOrder
     private Order custOrder = new Order();
 
     // Initializing Hamburger
@@ -32,11 +34,22 @@ public class RestaurantPanel extends JPanel {
     // Initializing the Menu
     ArrayList<MenuItem> menu = new ArrayList<MenuItem>(Arrays.asList(burger, cheeseBurger));
     
+    // Button bunButton
     JButton bunButton;
+
+    // Button pattyButton
     JButton pattyButton;
+
+    // Button cheeseButton
     JButton cheeseButton;
+
+    // Button clearButton
     JButton clearButton;
+
+    // Button submitButton
     JButton submitButton;
+
+    // Button recipeBook
     JButton recipeBook;
 
     JTextArea custText;
@@ -49,75 +62,85 @@ public class RestaurantPanel extends JPanel {
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
 
-        // Bun Button
+        // Location of bunButton
         gbc.gridx = 0;
         gbc.gridy = 2;
         gbc.ipadx = 20;
         gbc.ipady = 40;
 
+        // New bunButton
         bunButton = new JButton("Bun");
         add(bunButton, gbc);
 
-        // Patty Button
+        // Location of pattyButton
         gbc.gridx = 1;
         gbc.gridy = 2;
 
+        // New pattyButton
         pattyButton = new JButton("Patty");
         add(pattyButton, gbc);
 
-        // Cheese Button
+        // Location of cheeseButton
         gbc.gridx = 2;
         gbc.gridy = 2;
 
+        // New cheeseButton
         cheeseButton = new JButton("Cheese");
         add(cheeseButton, gbc);
 
-        // Clear Button
+        // Location of clearButton
         gbc.gridx = 0;
         gbc.gridy = 3;
 
+        // New clearButton
         clearButton = new JButton("Clear");
         add(clearButton, gbc);
 
-        // Submit Button
+        // Location of submitButton
         gbc.gridx = 1;
         gbc.gridy = 3;
 
+        // New submitButton
         submitButton = new JButton("Submit");
         add(submitButton, gbc);
 
-        // Recipe Book
+        // Location of recipeBook
         gbc.gridx = 2;
         gbc.gridy = 3;
 
+        // New recipeBook
         recipeBook = new JButton("Recipe Book");
         add(recipeBook, gbc);
 
-        // Customer Text
+        // Location of custText
         gbc.gridx = 0;
         gbc.gridy = 0;
 
+        // New custText
         custText = new JTextArea(1, 20);
         custText.setEditable(false);
         add(custText, gbc);
         custText.append("Hi, can I get a Hamburger?");
         
-        // Player Text
+        // Location of playerText
         gbc.gridx = 1;
         gbc.gridy = 0;
 
+        // New playerText
         playerText = new JTextArea(1, 20);
         playerText.setEditable(false);
         add(playerText, gbc);
 
-        // Restaurant Image        
+        // Location of restaurantImage        
         gbc.gridx = 1;
         gbc.gridy = 1;
 
+        // New restaurantImage
         restaurantImage = new ImageIcon(getClass().getResource("RestaurantImage3.png"));
         restaurantBackground = new JLabel(restaurantImage);
         add(restaurantBackground, gbc);
 
+        // Adding actionListeners
         bunButton.addActionListener(new ButtonListener());
         pattyButton.addActionListener(new ButtonListener());
         cheeseButton.addActionListener(new ButtonListener());
@@ -128,27 +151,27 @@ public class RestaurantPanel extends JPanel {
 
     private class ButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent event) {
-            // Bun Button
+            // On bunButton click, add to addIngredient and playerText
             if (event.getSource() == bunButton) {
                 playerOrder.addIngredient("Bun");
                 playerText.append("Bun ");
             }
-            // Patty Button
+            // On pattyButton click, add to addIngredient and playerText
             if (event.getSource() == pattyButton) {
                 playerOrder.addIngredient("Patty");
                 playerText.append("Patty ");
             }
-            // Cheese Button
+            // On cheeseButton click, add to addIngredient and playerText
             if (event.getSource() == cheeseButton) {
                 playerOrder.addIngredient("Cheese");
                 playerText.append("Cheese ");
             }
-            // Clear Button
+            // On clearButton click, call trash and clear playerText
             if (event.getSource() == clearButton) {
                 playerOrder.trash();
                 playerText.setText("");
             }
-            // Submit Button
+            // On submitButton click, check if playerOrder is correct, if so, move on, otherwise stay on current order
             if (event.getSource() == submitButton) {
                 playerText.setText("");
                 if (playerOrder.checkCorrect(custOrder.getCustOrder())) {
@@ -161,9 +184,9 @@ public class RestaurantPanel extends JPanel {
                 else {
                     custText.append("\nThat's not what I ordered!");
                     playerOrder.submit(custOrder, menu);
-                    //custOrder.nextOrder(menu);
                 }
             }
+            //On recipeBook click, open recipeBook
             if (event.getSource() == recipeBook) {
                 RecipeBook recipeBookWindow = new RecipeBook();
             }
