@@ -1,3 +1,15 @@
+/*
+ * Class Order of Restuarant Simulation Game
+ * <p>
+ * Contains methods meant to access/use Order objects.
+ * Also contains the ability to get a new order.
+ * <p>
+ * "Order" means a dish that the game's customer asks player to create. 
+ *
+ * @author Claire Grob, Hanna Halstead, & Jacqueline Poland
+ * @version March 4, 2022
+ **/
+
 import java.util.*;
 public class Order {
     private ArrayList<String> custOrder;

@@ -1,3 +1,14 @@
+/*
+ * Class MenuItem of Restuarant Simulation Game
+ * <p>
+ * Contains methods meant to access/use MenuItem objects.
+ * <p>
+ * Each MenuItem is the dish name, the price, and the ingriends to make it.
+ * 
+ * @author Claire Grob, Hanna Halstead, & Jacqueline Poland
+ * @version March 4, 2022
+ **/
+
 import java.util.*;
 public class MenuItem {
     private String name;
