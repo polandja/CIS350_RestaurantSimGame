@@ -1,9 +1,17 @@
 import java.util.*;
 import javax.swing.*;
 
-// Restaurant GUI class
+/*************************************************************
+ * Class RestaurantGUI of Restuarant Simulation Game
+ * <p>
+ * Creates the framework of the GUI to host a game. 
+ * 
+ * @author Claire Grob, Hanna Halstead, & Jacqueline Poland
+ * @version March 4, 2022
+ ************************************************************/
 public class RestaurantGUI {
     public static void main(String[] args) {
+        
         JMenu fileMenu;
         JMenuItem quitItem;
         JMenuBar menus;

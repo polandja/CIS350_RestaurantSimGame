@@ -5,8 +5,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-//Restaurant Panel Class
+/*************************************************************
+ * Class RestaurantPanel of Restuarant Simulation Game
+ * <p>
+ * Contains the framework for the game itself.
+ * <p>
+ * Connects the front-end visual framework to the back-end functionality.
+ * 
+ * @author Claire Grob, Hanna Halstead, & Jacqueline Poland
+ * @version March 4, 2022
+ ************************************************************/
 public class RestaurantPanel extends JPanel {
+    
     private OrderInProgress currentOrder = new OrderInProgress();
     private OrderInProgress playerOrder = new OrderInProgress();
     private Order custOrder = new Order();
@@ -144,10 +154,12 @@ public class RestaurantPanel extends JPanel {
                 if (playerOrder.checkCorrect(custOrder.getCustOrder())) {
                     playerOrder.submit(custOrder, menu);
                     custOrder.nextOrder(menu);
-                    custText.setText("Hi, can I get a " + custOrder.getCurrMenuItem().getName() + "?");
+                    custText.setText("");
+                    custText.append("Thank you!");
+                    custText.append("\nHi, can I get a " + custOrder.getCurrMenuItem().getName() + "?");
                 }
                 else {
-                    custText.setText("Incorrect, try again!");
+                    custText.append("\nThat's not what I ordered!");
                     playerOrder.submit(custOrder, menu);
                     //custOrder.nextOrder(menu);
                 }
