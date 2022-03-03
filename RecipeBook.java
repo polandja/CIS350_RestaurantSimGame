@@ -12,12 +12,20 @@ import javax.swing.*;
  ************************************************************/
 public class RecipeBook {
     
+    // New JFrame recipeBookFrame
     JFrame recipeBookFrame = new JFrame("Recipe Book");
+
+    // New JTextField recipeBookText1
     JTextField recipeBookText1 = new JTextField();
+
+    // New JTextField recipeBookText2
     JTextField recipeBookText2 = new JTextField();
      
     RecipeBook() {
+        // setText of recipeBookText1
         recipeBookText1.setText("Hamburger = [Bun, Patty, Bun]");
+
+        // setText of recipeBookText2
         recipeBookText2.setText("Cheeseburger = [Bun, Patty, Cheese, Bun]");
 
         recipeBookFrame.add(recipeBookText1);
