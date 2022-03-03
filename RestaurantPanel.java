@@ -5,8 +5,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-//Restaurant Panel Class
+/*************************************************************
+ * Class RestaurantPanel of Restuarant Simulation Game
+ * <p>
+ * Contains the framework for the game itself.
+ * <p>
+ * Connects the front-end visual framework to the back-end functionality.
+ * 
+ * @author Claire Grob, Hanna Halstead, & Jacqueline Poland
+ * @version March 4, 2022
+ ************************************************************/
 public class RestaurantPanel extends JPanel {
+    
     private OrderInProgress currentOrder = new OrderInProgress();
     private OrderInProgress playerOrder = new OrderInProgress();
     private Order custOrder = new Order();

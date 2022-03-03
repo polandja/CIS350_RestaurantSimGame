@@ -1,19 +1,34 @@
 import java.util.*;
 
+/*************************************************************
+ * Class OrderInProgress of Restuarant Simulation Game
+ * <p>
+ * Contains methods that give functionality to player in creating the current customer order. 
+ * <p>
+ * "OrderInProgress" is the current dish being created by player.
+ * Also contains a method to check if the order made by player was correct.
+ * 
+ * 
+ * @author Claire Grob, Hanna Halstead, & Jacqueline Poland
+ * @version March 4, 2022
+ ************************************************************/
 public class OrderInProgress {
 
     private ArrayList<String> playerOrder;
 
     /**
-     * default constructor-
-     * creates empty playerOrder
+     * Default constructor OrderInProgress creates an empty playerOrder.
      */
     public OrderInProgress() {
         this.playerOrder = new ArrayList<String>();
     }
 
     /**
-     * getter getPlayerOrder
+     * method addIngredient- 
+     * puts ingre AKA ingrdient into playerOrder
+     * @param ingre
+     * Getter getPlayerOrder
+     * 
      * @return Arraylist of strings
      */
     public ArrayList<String> getPlayerOrder(){
@@ -21,33 +36,32 @@ public class OrderInProgress {
     }
 
     /**
-     * method addIngredient-
-     * puts ingre AKA ingrient into playerOrder
+     * AddIngredient puts ingredient selected by player into playerOrder.
      * 
-     * @param ingre
+     * @param ingre  an ingirent the player chose
      */
     public void addIngredient(String ingre) {
         playerOrder.add(ingre);
     }
 
     /**
-     * trash method-
-     * removes all ingredients from the playerOrder
+     * Trash removes all ingredients from the playerOrder.
      */
     public void trash() {
         playerOrder.clear();
     }
 
     /**
-     * checkCorrect method-
-     * takes in current customer order
-     * checks if the player made the order correctly
+     * CheckCorrect checks if the player made the order correctly.
+     * <p>
+     * Compares ingredient list of current customer's order to player's order in progress.
      * 
-     * @param inCustOrder
-     * @return true if correct
+     * @param inCustOrder  current customer order
+     * @return true  if correct
      */
     public boolean checkCorrect(ArrayList<String> inCustOrder) {
-        if (inCustOrder.equals(this.playerOrder)) { // this. needed?
+        
+        if (inCustOrder.equals(this.playerOrder)) { 
             return true;
         } else {
             return false;
@@ -55,24 +69,24 @@ public class OrderInProgress {
     }
 
     /**
-     * submit method-
-     * called on a player order object.
-     * takes the expected customer order object, as well as the menu-
-     * which needs to be created by first constructing every menu item (ie burger),
-     * and then creating an array of those items to pass to the submit method
+     * Submit calls checkCorrect and gives a new customer order if correct. 
+     * <p>
+     * If incorrect, clears player order to try again.
      * 
-     * @param expected
-     * @param inMenu
+     * @param expected  the correct order 
+     * @param inMenu  the next order if correct
      */
     public void submit(Order expected, ArrayList<MenuItem> inMenu) {
+
+        //the player was correct:
         if (this.checkCorrect(expected.getCustOrder())) {
-            // player order was correct
             expected.nextOrder(inMenu);
             //System.out.println("In submit if statement");
             // numOrder++
         }
+
+        //the player was incorrect:
         this.trash();
-        // player was incorrect
         // possible penalty goes here
     }
 

@@ -4,8 +4,15 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 import java.util.*;
 
+/*************************************************************
+ * Class RestaurantTest of Restuarant Simulation Game
+ * <p>
+ * JUnit testing for back-end classes MenuItem, Order, and OrderInProgress.
+ * 
+ * @author Claire Grob, Hanna Halstead, & Jacqueline Poland
+ * @version March 4, 2022
+ ************************************************************/
 public class RestaurantTest{
-
 
     //----tests for MenuItem class---------------------------
 
