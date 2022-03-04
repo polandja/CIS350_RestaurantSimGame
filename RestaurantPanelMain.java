@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
  * <p>
  * Creates a button panel to quit game.
  * 
- * @author Claire Grob, Hanna Halstead, & Jacqueline Poland
+ * @author Claire Grob, Hanna Halstead, and Jacqueline Poland
  * @version March 4, 2022
  ************************************************************/
 public class RestaurantPanelMain extends JPanel {

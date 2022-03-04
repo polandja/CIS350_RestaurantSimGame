@@ -7,7 +7,7 @@ import javax.swing.*;
  * <p>
  * Contains the dishes/ recipes able to be ordered/ created. 
  * 
- * @author Claire Grob, Hanna Halstead, & Jacqueline Poland
+ * @author Claire Grob, Hanna Halstead, and Jacqueline Poland
  * @version March 4, 2022
  ************************************************************/
 public class RecipeBook {

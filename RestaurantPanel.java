@@ -4,7 +4,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
 /*************************************************************
  * Class RestaurantPanel of Restuarant Simulation Game
  * <p>
@@ -12,7 +11,7 @@ import java.awt.event.ActionListener;
  * <p>
  * Connects the front-end visual framework to the back-end functionality.
  * 
- * @author Claire Grob, Hanna Halstead, & Jacqueline Poland
+ * @author Claire Grob, Hanna Halstead, and Jacqueline Poland
  * @version March 4, 2022
  ************************************************************/
 public class RestaurantPanel extends JPanel {

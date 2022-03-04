@@ -9,7 +9,7 @@ import java.util.*;
  * Also contains a method to check if the order made by player was correct.
  * 
  * 
- * @author Claire Grob, Hanna Halstead, & Jacqueline Poland
+ * @author Claire Grob, Hanna Halstead, and Jacqueline Poland
  * @version March 4, 2022
  ************************************************************/
 public class OrderInProgress {
