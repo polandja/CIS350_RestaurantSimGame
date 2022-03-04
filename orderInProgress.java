@@ -24,12 +24,9 @@ public class OrderInProgress {
     }
 
     /**
-     * method addIngredient- 
-     * puts ingre AKA ingrdient into playerOrder
-     * @param ingre
-     * Getter getPlayerOrder
+     * Method getPlayerOrder, puts ingre AKA ingrdient into playerOrder.
      * 
-     * @return Arraylist of strings
+     * @return Arraylist of strings that is the player's order
      */
     public ArrayList<String> getPlayerOrder(){
         return playerOrder;
