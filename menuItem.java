@@ -1,3 +1,5 @@
+import java.util.*;
+
 /*
  * Class MenuItem of Restuarant Simulation Game
  * <p>
@@ -5,11 +7,9 @@
  * <p>
  * Each MenuItem is the dish name, the price, and the ingriends to make it.
  * 
- * @author Claire Grob, Hanna Halstead, & Jacqueline Poland
+ * @author Claire Grob, Hanna Halstead, and Jacqueline Poland
  * @version March 4, 2022
  **/
-
-import java.util.*;
 public class MenuItem {
     private String name;
     private double price;

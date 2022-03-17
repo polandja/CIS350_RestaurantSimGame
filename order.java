@@ -1,3 +1,5 @@
+import java.util.*;
+
 /*
  * Class Order of Restuarant Simulation Game
  * <p>
@@ -6,11 +8,9 @@
  * <p>
  * "Order" means a dish that the game's customer asks player to create. 
  *
- * @author Claire Grob, Hanna Halstead, & Jacqueline Poland
+ * @author Claire Grob, Hanna Halstead, and Jacqueline Poland
  * @version March 4, 2022
  **/
-
-import java.util.*;
 public class Order {
     private ArrayList<String> custOrder;
     private MenuItem currMenuItem;

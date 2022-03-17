@@ -1,5 +1,13 @@
 import java.util.*;
 
+/*
+ * Class Main of Restuarant Simulation Game
+ * <p>
+ * Defines MenuItems as their name, price, and ingredient list.
+ * 
+ * @author Claire Grob, Hanna Halstead, and Jacqueline Poland
+ * @version March 4, 2022
+ **/
 class Main{
     //Menu... where to put it? it's an array storing the MenuItems
     public static void Main(String[] args) {
