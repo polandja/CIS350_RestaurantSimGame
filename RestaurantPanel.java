@@ -17,8 +17,32 @@ import java.awt.event.ActionListener;
 public class RestaurantPanel extends JPanel {
     
     //New Round Counter
-    public int round = 1; 
-    
+    public int round = 0; 
+    public boolean passedRound = true; 
+
+    /*
+    public void metRoundEarningCheck(timer){
+        if (time= 0){
+            if (neededRoundEarnings >= playerRoundEarnings){
+                passedRound = true;
+                totalEarnings += playRoundEarnings; 
+                PlayerRoundEarnings = 0;
+            }
+            else{
+                passedRound = false;
+                playerRoundEarning = 0; 
+            }
+        }
+    }
+
+    public void beginNextRound(boolean passedRound, begin button action listener){
+        if begin clicked & passedRound = true
+            round++
+            start running game
+    }
+
+    */
+
 
     // New OrderInProgress playerOrder
     private OrderInProgress playerOrder = new OrderInProgress();
