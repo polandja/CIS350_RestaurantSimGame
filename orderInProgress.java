@@ -56,9 +56,9 @@ public class OrderInProgress {
      * @param inCustOrder  current customer order
      * @return true  if correct
      */
-    public boolean checkCorrect(ArrayList<String> inCustOrder) {
+    public boolean checkCorrect(MenuItem inMenuItem) {
         
-        if (inCustOrder.equals(this.playerOrder)) { 
+        if (inMenuItem.getRecipe().equals(this.playerOrder)) { 
             return true;
         } else {
             return false;
@@ -76,7 +76,7 @@ public class OrderInProgress {
     public void submit(Order expected, ArrayList<MenuItem> inMenu) {
 
         //the player was correct:
-        if (this.checkCorrect(expected.getCustOrder())) {
+        if (this.checkCorrect(expected.getCurrMenuItem())) {
             expected.nextOrder(inMenu);
             //System.out.println("In submit if statement");
             // numOrder++

@@ -165,7 +165,7 @@ public class RestaurantTest{
 
         Order customer = new Order();
 
-        boolean test = worker.checkCorrect(customer.getCustOrder());
+        boolean test = worker.checkCorrect(customer.getCurrMenuItem());
         boolean expected = false;
         assertEquals(test, false);
     }
@@ -185,7 +185,7 @@ public class RestaurantTest{
 
         Order customer = new Order();
 
-        assertEquals(worker.checkCorrect(customer.getCustOrder()), true);
+        assertEquals(worker.checkCorrect(customer.getCurrMenuItem()), true);
     }
 
     @Test //tests submit method
