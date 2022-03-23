@@ -231,7 +231,7 @@ public class RestaurantPanel extends JPanel {
             // On submitButton click, check if playerOrder is correct, if so, move on, otherwise stay on current order
             if (event.getSource() == submitButton) {
                 playerText.setText("");
-                if (playerOrder.checkCorrect(custOrder.getCustOrder())) {
+                if (playerOrder.checkCorrect(custOrder.getCurrMenuItem())) {
                     playerOrder.submit(custOrder, menu);
                     custOrder.nextOrder(menu);
                     custText.setText("");
