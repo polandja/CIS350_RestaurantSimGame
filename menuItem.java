@@ -1,5 +1,3 @@
-import java.util.*;
-
 /*
  * Class MenuItem of Restuarant Simulation Game
  * <p>
@@ -10,6 +8,8 @@ import java.util.*;
  * @author Claire Grob, Hanna Halstead, and Jacqueline Poland
  * @version March 4, 2022
  **/
+
+import java.util.*;
 public class MenuItem {
     private String name;
     private double price;
@@ -80,6 +80,10 @@ public class MenuItem {
      */
     public void setRecipe(ArrayList<String> newRecipe){
         this.recipe = newRecipe;
+    }
+
+    public double calcTip(){
+        return this.price*.15;
     }
 
 }
