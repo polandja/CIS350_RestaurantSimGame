@@ -9,27 +9,28 @@ import java.util.*;
  * Also contains a method to check if the order made by player was correct.
  * 
  * 
- * @author Claire Grob, Hanna Halstead, & Jacqueline Poland
+ * @author Claire Grob, Hanna Halstead, and Jacqueline Poland
  * @version March 4, 2022
  ************************************************************/
 public class OrderInProgress {
 
     private ArrayList<String> playerOrder;
+    private double roundMoney;
+    private int wrongAttempts;
 
     /**
      * Default constructor OrderInProgress creates an empty playerOrder.
      */
     public OrderInProgress() {
         this.playerOrder = new ArrayList<String>();
+        roundMoney = 0;
+        wrongAttempts = 0;
     }
 
     /**
-     * method addIngredient- 
-     * puts ingre AKA ingrdient into playerOrder
-     * @param ingre
-     * Getter getPlayerOrder
+     * Method getPlayerOrder, puts ingre AKA ingrdient into playerOrder.
      * 
-     * @return Arraylist of strings
+     * @return Arraylist of strings that is the player's order
      */
     public ArrayList<String> getPlayerOrder(){
         return playerOrder;
@@ -59,9 +60,9 @@ public class OrderInProgress {
      * @param inCustOrder  current customer order
      * @return true  if correct
      */
-    public boolean checkCorrect(ArrayList<String> inCustOrder) {
+    public boolean checkCorrect(MenuItem inMenuItem) {
         
-        if (inCustOrder.equals(this.playerOrder)) { 
+        if (inMenuItem.getRecipe().equals(this.playerOrder)) { 
             return true;
         } else {
             return false;
@@ -77,12 +78,33 @@ public class OrderInProgress {
      * @param inMenu  the next order if correct
      */
     public void submit(Order expected, ArrayList<MenuItem> inMenu) {
-
+        double customerPayment = 0;
         //the player was correct:
-        if (this.checkCorrect(expected.getCustOrder())) {
+        if (this.checkCorrect(expected.getCurrMenuItem())) {
             expected.nextOrder(inMenu);
-            //System.out.println("In submit if statement");
-            // numOrder++
+            if(wrongAttempts==0){ //base pay + tip
+            double tip = expected.getCurrMenuItem().calcTip();
+            customerPayment = expected.getCurrMenuItem().getPrice() + tip;
+            roundMoney += expected.getCurrMenuItem().getPrice() + tip;
+            }
+            if(wrongAttempts==1){ //base pay, no tip
+                customerPayment = expected.getCurrMenuItem().getPrice();
+                roundMoney += expected.getCurrMenuItem().getPrice();
+            }
+            if(wrongAttempts>=2){ // no money, no penalty
+                customerPayment = 0;
+                System.out.println("Customer gets this order free");
+            }
+            System.out.println("Customer payed you" + customerPayment);
+            wrongAttempts = 0;
+        }
+        else{ //the player was incorrect
+            wrongAttempts ++;
+            //if they submit the order incorrectly 3 times, the next customer appears and the player gets no money
+            // if(wrongAttempts >= 2){ 
+            //     expected.nextOrder(inMenu);
+            //     wrongAttempts = 0;
+            // }
         }
 
         //the player was incorrect:

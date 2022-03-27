@@ -9,7 +9,7 @@ import java.util.*;
  * <p>
  * JUnit testing for back-end classes MenuItem, Order, and OrderInProgress.
  * 
- * @author Claire Grob, Hanna Halstead, & Jacqueline Poland
+ * @author Claire Grob, Hanna Halstead, and Jacqueline Poland
  * @version March 4, 2022
  ************************************************************/
 public class RestaurantTest{
@@ -165,7 +165,7 @@ public class RestaurantTest{
 
         Order customer = new Order();
 
-        boolean test = worker.checkCorrect(customer.getCustOrder());
+        boolean test = worker.checkCorrect(customer.getCurrMenuItem());
         boolean expected = false;
         assertEquals(test, false);
     }
@@ -185,7 +185,7 @@ public class RestaurantTest{
 
         Order customer = new Order();
 
-        assertEquals(worker.checkCorrect(customer.getCustOrder()), true);
+        assertEquals(worker.checkCorrect(customer.getCurrMenuItem()), true);
     }
 
     @Test //tests submit method

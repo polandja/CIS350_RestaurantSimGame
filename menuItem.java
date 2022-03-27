@@ -5,7 +5,7 @@
  * <p>
  * Each MenuItem is the dish name, the price, and the ingriends to make it.
  * 
- * @author Claire Grob, Hanna Halstead, & Jacqueline Poland
+ * @author Claire Grob, Hanna Halstead, and Jacqueline Poland
  * @version March 4, 2022
  **/
 
@@ -16,11 +16,11 @@ public class MenuItem {
     private ArrayList<String> recipe;
 
     /**
-     * constructor MenuItem
+     * Constructor MenuItem, makes a MenuItem with name, price, and recipe attributes.
      * 
-     * @param inName the desired name of the new MenuItem.
-     * @param inPrice the desired price of the new MenuItem.
-     * @param inList the desired recipe of the new MenuItem.
+     * @param inName  the desired name of the new MenuItem
+     * @param inPrice  the desired price of the new MenuItem
+     * @param inList  the desired recipe of the new MenuItem
      */
     public MenuItem(String inName, double inPrice, ArrayList<String> inList){
         this.name = inName;
@@ -29,57 +29,61 @@ public class MenuItem {
     }
 
     /**
-     * getter getName
+     * Getter getName, retrieves the name of the dish.
      * 
-     * @return String name of MenuItem.
+     * @return  String name of MenuItem
      */
     public String getName(){
         return this.name;
     }
 
     /**
-     * getter method
+     * Getter method, retrieves price of menuItem.
      * 
-     * @return Double price of MenuItem.
+     * @return  Double price of MenuItem
      */
     public double getPrice(){
         return this.price;
     }
 
     /**
-     * getter method.
+     * Getter method, retrieves recipe of the menu item.
      * 
-     * @return StringList of ingredients of MenuItem.
+     * @return  StringList of ingredients of MenuItem
      */
     public ArrayList<String> getRecipe(){
         return this.recipe;
     }
 
     /**
-     * setter method - sets name of MenuItem.
+     * Setter method, sets name of MenuItem.
      * 
-     * @param newName name the menuItem will be set to.
+     * @param newName  name the menuItem will be set to
      */
     public void setName(String newName){
         this.name = newName;
     }
 
     /** 
-     * setter method-sets price of MenuItem
+     * Setter method, sets price of MenuItem.
      * 
-     * @param newPrice price the menuItem will be set to.
+     * @param newPrice  price the menuItem will be set to
     */
     public void setPrice(double newPrice){
         this.price = newPrice;
     }
 
     /**
-     * setter method-sets name of recipe (a string list of ingredients).
+     * Setter method, sets name of recipe (a string list of ingredients).
      * 
-     * @param newRecipe recipe the menuItem will be set to.
+     * @param newRecipe  recipe the menuItem will be set to
      */
     public void setRecipe(ArrayList<String> newRecipe){
         this.recipe = newRecipe;
+    }
+
+    public double calcTip(){
+        return this.price*.15;
     }
 
 }
