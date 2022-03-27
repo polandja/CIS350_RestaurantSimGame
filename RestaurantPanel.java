@@ -1,9 +1,10 @@
 import java.util.*;
+import java.util.Timer;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 
 /*************************************************************
  * Class RestaurantPanel of Restuarant Simulation Game
@@ -56,84 +57,120 @@ public class RestaurantPanel extends JPanel {
     JTextArea playerText;
 
     JLabel restaurantBackground;
+    JLabel timerText = new JLabel();
+
     ImageIcon restaurantImage;
 
     public RestaurantPanel() {
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
 
+        gbc.fill = gbc.BOTH;
+        //gbc.anchor = gbc.CENTER;
+        gbc.weightx = 1.0;
+
         // Location of bunButton
+
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
         gbc.gridx = 0;
         gbc.gridy = 2;
         gbc.ipadx = 20;
-        gbc.ipady = 40;
+        gbc.ipady = 20;
 
         // New bunButton
         bunButton = new JButton("Bun");
         add(bunButton, gbc);
 
         // Location of pattyButton
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
         gbc.gridx = 1;
         gbc.gridy = 2;
+        gbc.ipadx = 20;
+        gbc.ipady = 20;
 
         // New pattyButton
         pattyButton = new JButton("Patty");
         add(pattyButton, gbc);
 
         // Location of cheeseButton
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
         gbc.gridx = 2;
         gbc.gridy = 2;
+        gbc.ipadx = 20;
+        gbc.ipady = 20;
 
         // New cheeseButton
         cheeseButton = new JButton("Cheese");
         add(cheeseButton, gbc);
 
         // Location of clearButton
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
         gbc.gridx = 0;
         gbc.gridy = 3;
+        gbc.ipadx = 20;
+        gbc.ipady = 20;        
 
         // New clearButton
         clearButton = new JButton("Clear");
         add(clearButton, gbc);
 
         // Location of submitButton
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
         gbc.gridx = 1;
         gbc.gridy = 3;
+        gbc.ipadx = 20;
+        gbc.ipady = 20;
 
         // New submitButton
         submitButton = new JButton("Submit");
         add(submitButton, gbc);
 
         // Location of recipeBook
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
         gbc.gridx = 2;
         gbc.gridy = 3;
+        gbc.ipadx = 20;
+        gbc.ipady = 20;
 
         // New recipeBook
         recipeBook = new JButton("Recipe Book");
         add(recipeBook, gbc);
 
         // Location of custText
+        gbc.gridwidth = 2;
+        gbc.gridheight = 1;
         gbc.gridx = 0;
         gbc.gridy = 0;
+        gbc.weightx = 0.5;
 
         // New custText
-        custText = new JTextArea(1, 20);
+        custText = new JTextArea(1, 5);
         custText.setEditable(false);
         add(custText, gbc);
         custText.append("Hi, can I get a Hamburger?");
         
         // Location of playerText
-        gbc.gridx = 1;
+        gbc.gridwidth = 2;
+        gbc.gridheight = 1;
+        gbc.gridx = 2;
         gbc.gridy = 0;
+        gbc.weightx = 0.5;
 
         // New playerText
-        playerText = new JTextArea(1, 20);
+        playerText = new JTextArea(1, 5);
         playerText.setEditable(false);
         add(playerText, gbc);
 
-        // Location of restaurantImage        
-        gbc.gridx = 1;
-        gbc.gridy = 1;
+        // Location of restaurantImage
+        gbc.gridwidth = 3;
+        gbc.gridx = 0;
+        gbc.gridy = 1; 
 
         // New restaurantImage
         restaurantImage = new ImageIcon(getClass().getResource("RestaurantImage3.png"));

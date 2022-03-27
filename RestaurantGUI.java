@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.Timer;
 import javax.swing.*;
 
 /*************************************************************
@@ -26,12 +27,10 @@ public class RestaurantGUI {
 
         // New quitItem
         quitItem = new JMenuItem("Quit");
-        
         fileMenu.add(quitItem);
 
         // New menus
         menus = new JMenuBar();
-
         menus.add(fileMenu);
 
         // New JFrame gui
@@ -42,9 +41,32 @@ public class RestaurantGUI {
         RestaurantPanelMain panel = new RestaurantPanelMain(quitItem);
         gui.getContentPane().add(panel);
 
+        JLabel timer = new JLabel();
+
+        menus.add(Box.createHorizontalGlue());
+        menus.add(timer);
+
+        Timer countdownTimer = new Timer();
+
+        countdownTimer.scheduleAtFixedRate(new TimerTask() {
+            int i = 60;
+
+            public void run() {
+                timer.setText("Time left: " + i);
+                i--;
+
+                if (i < 0) {
+                    countdownTimer.cancel();
+                    timer.setText("Time Over");
+                }
+            }
+            
+        }, 0, 1000);
+
         gui.pack();
-        gui.setSize(1200, 800);
+        gui.setSize(1000, 1000);
         gui.setJMenuBar(menus);
         gui.setVisible(true);
+
     }
 }
