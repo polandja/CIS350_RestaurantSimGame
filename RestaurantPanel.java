@@ -92,7 +92,6 @@ public class RestaurantPanel extends JPanel {
     // Initializing the Menu
     ArrayList<MenuItem> menu = new ArrayList<MenuItem>(Arrays.asList(burger, cheeseBurger));
 
-    
     // Button bunButton
     JButton bunButton;
 
@@ -101,6 +100,15 @@ public class RestaurantPanel extends JPanel {
 
     // Button cheeseButton
     JButton cheeseButton;
+
+    // Button lettuceButton
+    JButton lettuceButton;
+
+    // Button tomatoButton
+    JButton tomatoButton;
+
+    // Button onionButton
+    JButton onionButton;
 
     // Button clearButton
     JButton clearButton;
@@ -128,7 +136,6 @@ public class RestaurantPanel extends JPanel {
         gbc.weightx = 1.0;
 
         // Location of bunButton
-
         gbc.gridwidth = 1;
         gbc.gridheight = 1;
         gbc.gridx = 0;
@@ -164,11 +171,47 @@ public class RestaurantPanel extends JPanel {
         cheeseButton = new JButton("Cheese");
         add(cheeseButton, gbc);
 
-        // Location of clearButton
+        // Location of lettuceButton
         gbc.gridwidth = 1;
         gbc.gridheight = 1;
         gbc.gridx = 0;
         gbc.gridy = 3;
+        gbc.ipadx = 20;
+        gbc.ipady = 20;
+
+        // New lettuceButton
+        lettuceButton = new JButton("Lettuce");
+        add(lettuceButton, gbc);
+
+        // Location of tomatoButton
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        gbc.gridx = 1;
+        gbc.gridy = 3;
+        gbc.ipadx = 20;
+        gbc.ipady = 20;
+
+        // New tomatoButton
+        tomatoButton = new JButton("Tomato");
+        add(tomatoButton, gbc);
+
+        // Location of onionButton
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        gbc.gridx = 2;
+        gbc.gridy = 3;
+        gbc.ipadx = 20;
+        gbc.ipady = 20;
+
+        // New onionButton
+        onionButton = new JButton("Onion");
+        add(onionButton, gbc);
+
+        // Location of clearButton
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        gbc.gridx = 0;
+        gbc.gridy = 4;
         gbc.ipadx = 20;
         gbc.ipady = 20;        
 
@@ -180,7 +223,7 @@ public class RestaurantPanel extends JPanel {
         gbc.gridwidth = 1;
         gbc.gridheight = 1;
         gbc.gridx = 1;
-        gbc.gridy = 3;
+        gbc.gridy = 4;
         gbc.ipadx = 20;
         gbc.ipady = 20;
 
@@ -192,7 +235,7 @@ public class RestaurantPanel extends JPanel {
         gbc.gridwidth = 1;
         gbc.gridheight = 1;
         gbc.gridx = 2;
-        gbc.gridy = 3;
+        gbc.gridy = 4;
         gbc.ipadx = 20;
         gbc.ipady = 20;
 
@@ -239,6 +282,9 @@ public class RestaurantPanel extends JPanel {
         bunButton.addActionListener(new ButtonListener());
         pattyButton.addActionListener(new ButtonListener());
         cheeseButton.addActionListener(new ButtonListener());
+        lettuceButton.addActionListener(new ButtonListener());
+        tomatoButton.addActionListener(new ButtonListener());
+        onionButton.addActionListener(new ButtonListener());
         clearButton.addActionListener(new ButtonListener());
         submitButton.addActionListener(new ButtonListener());
         recipeBook.addActionListener(new ButtonListener());
@@ -261,6 +307,21 @@ public class RestaurantPanel extends JPanel {
                 playerOrder.addIngredient("Cheese");
                 playerText.append("Cheese ");
             }
+            // On lettuceButton click, add to addIngredient and playerText
+            if (event.getSource() == lettuceButton) {
+                playerOrder.addIngredient("Lettuce");
+                playerText.append("Lettuce ");
+            }
+            // On tomatoButton click, add to addIngredient and playerText
+            if (event.getSource() == tomatoButton) {
+                playerOrder.addIngredient("Tomato");
+                playerText.append("Tomato ");
+            }
+            // On onionButton click, add to addIngredient and playerText
+            if (event.getSource() == onionButton) {
+                playerOrder.addIngredient("Onion");
+                playerText.append("Onion ");
+            }
             // On clearButton click, call trash and clear playerText
             if (event.getSource() == clearButton) {
                 playerOrder.trash();
@@ -274,14 +335,14 @@ public class RestaurantPanel extends JPanel {
                     custOrder.nextOrder(menu);
                     custText.setText("");
                     custText.append("Thank you!");
-                    custText.append("\nHi, can I get a " + custOrder.getCurrMenuItem().getName() + "?");
+                    custText.append("\n Hi, can I get a " + custOrder.getCurrMenuItem().getName() + "?");
                 }
                 else {
-                    custText.append("\nThat's not what I ordered!");
+                    custText.append("\n That's not what I ordered!");
                     playerOrder.submit(custOrder, menu);
                 }
             }
-            //On recipeBook click, open recipeBook
+            // On recipeBook click, open recipeBook
             if (event.getSource() == recipeBook) {
                 RecipeBook recipeBookWindow = new RecipeBook();
             }
