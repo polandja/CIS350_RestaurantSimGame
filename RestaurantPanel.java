@@ -332,7 +332,7 @@ public class RestaurantPanel extends JPanel {
                 playerText.setText("");
                 if (playerOrder.checkCorrect(custOrder.getCurrMenuItem())) {
                     playerOrder.submit(custOrder, menu);
-                    custOrder.nextOrder(menu);
+                    //custOrder.nextOrder(menu);
                     custText.setText("");
                     custText.append("Thank you!");
                     custText.append("\n Hi, can I get a " + custOrder.getCurrMenuItem().getName() + "?");
