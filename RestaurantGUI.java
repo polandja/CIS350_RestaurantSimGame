@@ -18,6 +18,9 @@ public class RestaurantGUI {
         // JMenuItem quitItem
         JMenuItem quitItem;
 
+        // JMenuItem helpItem
+        JMenuItem helpItem;
+
         // JMenuBar menus
         JMenuBar menus;
 
@@ -28,6 +31,10 @@ public class RestaurantGUI {
         quitItem = new JMenuItem("Quit");
         fileMenu.add(quitItem);
 
+        // New helpItem
+        helpItem = new JMenuItem("Help");
+        fileMenu.add(helpItem);
+
         // New menus
         menus = new JMenuBar();
         menus.add(fileMenu);
@@ -37,8 +44,49 @@ public class RestaurantGUI {
         gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // New RestaurantPanelMain panel
-        RestaurantPanelMain panel = new RestaurantPanelMain(quitItem);
-        gui.getContentPane().add(panel);
+        //RestaurantPanelMain panel = new RestaurantPanelMain(quitItem);
+        //gui.getContentPane().add(panel);
+
+        // New RestaurantPanelMain panel
+        RestaurantPanelMain quitPanel = new RestaurantPanelMain(quitItem);
+        gui.getContentPane().add(quitPanel);
+
+        // New RestaurantPanelMain panel
+        RestaurantPanelMain helpPanel = new RestaurantPanelMain(helpItem);
+        gui.getContentPane().add(helpPanel);
+
+        /*
+        "Welcome to Burger Thyme!
+
+        Don’t worry, our restaurant is easy to run. Before you is your workstation
+         with fresh ingredients to fulfill orders for the awaiting customers!
+        
+        
+        You’ll be slowly introduced to new recipes. If you ever forget one, you can
+         glance at the Recipe Book!
+        
+        
+        You have to build the customer order in the same order as the recipe book.
+         Press Submit to deliver the finished customer order!
+        
+        
+        If you submit a customer order right first try you get the menu item price +
+         a tip! However, if you get a customer order right on the second try, you’ll
+         only get the menu item price. If you get it right on the third try the
+         customer gets the meal for free. 
+        
+        
+        No taking off ingredients! If you mess up an order, you can restart by
+         pressing Clear- but it’ll cost you $3 per ingredient wasted! 
+        
+        
+        You’ll need to meet the day’s income quota to progress to the next day/ round.
+         Careful not to run out of time!
+        
+        
+        Press Begin to start playing!
+        "
+        */
 
         JLabel timer = new JLabel();
 
