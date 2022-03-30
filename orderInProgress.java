@@ -28,12 +28,20 @@ public class OrderInProgress {
     }
 
     /**
-     * Method getPlayerOrder, puts ingre AKA ingrdient into playerOrder.
+     * Method getPlayerOrder, returns the items in the current OrderInProgress
      * 
      * @return Arraylist of strings that is the player's order
      */
     public ArrayList<String> getPlayerOrder(){
         return playerOrder;
+    }
+
+    /**
+     * Method getRoundMoney, returns the value of current OrderInProgress roundMoney
+     * @return Double that is the player's round money
+     */
+    public Double getPlayerMoney(){
+        return roundMoney;
     }
 
     /**
@@ -95,7 +103,8 @@ public class OrderInProgress {
                 customerPayment = 0;
                 System.out.println("Customer gets this order free");
             }
-            System.out.println("Customer payed you" + customerPayment);
+            System.out.println("Customer payed you: " + customerPayment);
+            System.out.println(roundMoney);
             wrongAttempts = 0;
         }
         else{ //the player was incorrect

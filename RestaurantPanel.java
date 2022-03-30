@@ -45,13 +45,11 @@ public class RestaurantPanel extends JPanel {
 
     */
 
-
     // New OrderInProgress playerOrder
     private OrderInProgress playerOrder = new OrderInProgress();
     
     // New Order custOrder
     private Order custOrder = new Order();
-
 
     // Initializing Hamburger
     ArrayList<String> burgerRec = new ArrayList<String>(Arrays.asList("Bun", "Patty", "Bun"));
@@ -119,11 +117,14 @@ public class RestaurantPanel extends JPanel {
     // Button recipeBook
     JButton recipeBook;
 
+    // JTextArea customerText
     JTextArea custText;
+
+    // JTextArea playerText
     JTextArea playerText;
 
     JLabel restaurantBackground;
-    JLabel timerText = new JLabel();
+    JLabel moneyLabel;
 
     ImageIcon restaurantImage;
 
@@ -132,7 +133,6 @@ public class RestaurantPanel extends JPanel {
         GridBagConstraints gbc = new GridBagConstraints();
 
         gbc.fill = gbc.BOTH;
-        //gbc.anchor = gbc.CENTER;
         gbc.weightx = 1.0;
 
         // Location of bunButton
@@ -278,6 +278,15 @@ public class RestaurantPanel extends JPanel {
         restaurantBackground = new JLabel(restaurantImage);
         add(restaurantBackground, gbc);
 
+        // Location of moneyLabel
+        gbc.gridwidth = 1;
+        gbc.gridx = 4;
+        gbc.gridy = 0;
+
+        // New moneyLabel
+        moneyLabel = new JLabel("Round Earnings: 0.0");
+        add(moneyLabel, gbc);
+
         // Adding actionListeners
         bunButton.addActionListener(new ButtonListener());
         pattyButton.addActionListener(new ButtonListener());
@@ -332,7 +341,7 @@ public class RestaurantPanel extends JPanel {
                 playerText.setText("");
                 if (playerOrder.checkCorrect(custOrder.getCurrMenuItem())) {
                     playerOrder.submit(custOrder, menu);
-                    //custOrder.nextOrder(menu);
+                    moneyLabel.setText("Round Earnings: " + playerOrder.getPlayerMoney().toString());
                     custText.setText("");
                     custText.append("Thank you!");
                     custText.append("\n Hi, can I get a " + custOrder.getCurrMenuItem().getName() + "?");
