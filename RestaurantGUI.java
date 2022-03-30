@@ -32,18 +32,42 @@ public class RestaurantGUI {
         menus = new JMenuBar();
         menus.add(fileMenu);
 
-        // New JFrame gui
+        // New JFrame GUI
         JFrame gui = new JFrame("Restaurant Game");
         gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // New JFrame roundWindow
+        JFrame roundWindow = new JFrame("Round Start");
 
         // New RestaurantPanelMain panel
         RestaurantPanelMain panel = new RestaurantPanelMain(quitItem);
         gui.getContentPane().add(panel);
 
+        // New JLabel timer
         JLabel timer = new JLabel();
+
+        // New JLabel roundLabel
+        JLabel roundLabel = new JLabel();
+        roundLabel.setText("Round");
+        roundLabel.setBounds(50, 50, 50, 50);
+
+        // New JButton startButton
+        JButton startButton = new JButton("Start");
 
         menus.add(Box.createHorizontalGlue());
         menus.add(timer);
+
+        gui.pack();
+        gui.setSize(1000, 1000);
+        gui.setJMenuBar(menus);
+        gui.setVisible(true);
+
+        roundWindow.add(roundLabel);
+        roundWindow.add(startButton);
+        roundWindow.pack();
+        roundWindow.setSize(250, 250);
+        roundWindow.setLayout(null);
+        roundWindow.setVisible(true);
 
         Timer countdownTimer = new Timer();
 
@@ -61,11 +85,6 @@ public class RestaurantGUI {
             }
             
         }, 0, 1000);
-
-        gui.pack();
-        gui.setSize(1000, 1000);
-        gui.setJMenuBar(menus);
-        gui.setVisible(true);
 
     }
 }
