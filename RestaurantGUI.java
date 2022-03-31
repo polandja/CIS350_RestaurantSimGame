@@ -78,9 +78,11 @@ public class RestaurantGUI {
          only get the menu item price. If you get it right on the third try the
          customer gets the meal for free. 
         
+        The customer will leave after 3 incorrect attempts!
+        
         
         No taking off ingredients! If you mess up an order, you can restart by
-         pressing Clear- but it’ll cost you $3 per ingredient wasted! 
+         pressing Clear- but it’ll cost you $1 per ingredient wasted! 
         
         
         You’ll need to meet the day’s income quota to progress to the next day/ round.
@@ -96,8 +98,18 @@ public class RestaurantGUI {
 
         // New JLabel roundLabel
         JLabel roundLabel = new JLabel();
-        roundLabel.setText("Round");
+        roundLabel.setText("Round: "); // + Round.getRoundNum()  or something??
         roundLabel.setBounds(50, 50, 50, 50);
+
+        // New JLabel timeLabel
+        JLabel timeLabel = new JLabel();
+        timeLabel.setText("Time: ");
+        timeLabel.setBounds(50, 80, 50, 50);
+
+        // New JLabel moneyGoalLabel
+        JLabel moneyGoalLabel = new JLabel();
+        moneyGoalLabel.setText("Goal: $");
+        moneyGoalLabel.setBounds(50, 110, 50, 50);
 
         // New JButton startButton
         JButton startButton = new JButton("Start");
@@ -111,6 +123,8 @@ public class RestaurantGUI {
         gui.setVisible(true);
 
         roundWindow.add(roundLabel);
+        roundWindow.add(timeLabel);
+        roundWindow.add(moneyGoalLabel);
         roundWindow.add(startButton);
         roundWindow.pack();
         roundWindow.setSize(250, 250);
