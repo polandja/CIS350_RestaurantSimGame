@@ -335,6 +335,7 @@ public class RestaurantPanel extends JPanel {
             if (event.getSource() == clearButton) {
                 playerOrder.trash();
                 playerText.setText("");
+                moneyLabel.setText("Round Earnings: " + playerOrder.getPlayerMoney().toString());
             }
             // On submitButton click, check if playerOrder is correct, if so, move on, otherwise stay on current order
             if (event.getSource() == submitButton) {
