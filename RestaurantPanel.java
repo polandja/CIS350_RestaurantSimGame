@@ -17,33 +17,6 @@ import java.awt.event.ActionListener;
  * @version March 4, 2022
  ************************************************************/
 public class RestaurantPanel extends JPanel {
-    
-    //New Round Counter
-    public int round = 0; 
-    public boolean passedRound = true; 
-
-    /*
-    public void metRoundEarningCheck(timer){
-        if (time= 0){
-            if (neededRoundEarnings >= playerRoundEarnings){
-                passedRound = true;
-                totalEarnings += playRoundEarnings; 
-                PlayerRoundEarnings = 0;
-            }
-            else{
-                passedRound = false;
-                playerRoundEarning = 0; 
-            }
-        }
-    }
-
-    public void beginNextRound(boolean passedRound, begin button action listener){
-        if begin clicked & passedRound = true
-            round++
-            start running game
-    }
-
-    */
 
     // New OrderInProgress playerOrder
     private OrderInProgress playerOrder = new OrderInProgress();
@@ -274,7 +247,7 @@ public class RestaurantPanel extends JPanel {
         gbc.gridy = 1; 
 
         // New restaurantImage
-        restaurantImage = new ImageIcon(getClass().getResource("RestaurantImage3.png"));
+        restaurantImage = new ImageIcon(getClass().getResource("RestaurantImage1.png"));
         restaurantBackground = new JLabel(restaurantImage);
         add(restaurantBackground, gbc);
 
