@@ -212,7 +212,7 @@ public class RestaurantPanel extends JPanel {
         gbc.gridy = 1; 
 
         // New restaurantImage
-        restaurantImage = new ImageIcon(getClass().getResource("RestaurantImage1.png"));
+        restaurantImage = new ImageIcon(getClass().getResource("Person1.png"));
         restaurantBackground = new JLabel(restaurantImage);
         add(restaurantBackground, gbc);
 
