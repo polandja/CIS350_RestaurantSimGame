@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
  * Connects the front-end visual framework to the back-end functionality.
  * 
  * @author Claire Grob, Hanna Halstead, and Jacqueline Poland
- * @version April, 2022
+ * @version April 18, 2022
  ************************************************************/
 
 public class RestaurantPanel extends JPanel {
