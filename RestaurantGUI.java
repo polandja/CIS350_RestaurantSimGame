@@ -8,7 +8,7 @@ import javax.swing.*;
  * Creates the framework of the GUI to host a game. 
  * 
  * @author Claire Grob, Hanna Halstead, and Jacqueline Poland
- * @version April, 2022
+ * @version April 18, 2022
  ************************************************************/
 
 public class RestaurantGUI {
