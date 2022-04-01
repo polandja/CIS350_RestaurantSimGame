@@ -10,8 +10,9 @@ import java.util.*;
  * JUnit testing for back-end classes MenuItem, Order, and OrderInProgress.
  * 
  * @author Claire Grob, Hanna Halstead, and Jacqueline Poland
- * @version March 4, 2022
+ * @version April 18, 2022
  ************************************************************/
+
 public class RestaurantTest{
 
     //----tests for MenuItem class---------------------------
