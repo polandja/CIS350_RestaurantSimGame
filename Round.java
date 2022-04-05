@@ -1,5 +1,14 @@
 import java.util.*;
 
+/*************************************************************
+ * Class Round of Restuarant Simulation Game
+ * <p>
+ * Making the rounds of the game function.
+ * 
+ * @author Claire Grob, Hanna Halstead, and Jacqueline Poland
+ * @version April 18, 2022
+ ************************************************************/
+
 public class Round {
     private int roundNum;
     private double cashGoal;

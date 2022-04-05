@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
  * Connects the front-end visual framework to the back-end functionality.
  * 
  * @author Claire Grob, Hanna Halstead, and Jacqueline Poland
- * @version March 4, 2022
+ * @version April 18, 2022
  ************************************************************/
 public class RestaurantPanel extends JPanel {
     // New OrderInProgress playerOrder
@@ -22,44 +22,8 @@ public class RestaurantPanel extends JPanel {
     // New Order custOrder
     private Order custOrder = new Order();
 
-    // Initializing Hamburger
-    ArrayList<String> burgerRec = new ArrayList<String>(Arrays.asList("Bun", "Patty", "Bun"));
-    MenuItem burger = new MenuItem("Hamburger", 10, burgerRec);
-
-    // Initializing CheeseBurger
-    ArrayList<String> cheeseBurgerRec = new ArrayList<String>(Arrays.asList("Bun", "Patty", "Cheese", "Bun"));
-    MenuItem cheeseBurger = new MenuItem("CheeseBurger", 11, cheeseBurgerRec);
-
-    // Initializing AmericanBurger
-    ArrayList<String> americanBurgerRec = new ArrayList<String>(Arrays.asList("Bun", "Patty", "Cheese", "Lettuce", "Tomato", "Bun"));
-    MenuItem americanBurger = new MenuItem("AmericanBurger", 15, americanBurgerRec);
-   
-    // Initializing QuarterPounder
-    ArrayList<String> quarterPounderRec = new ArrayList<String>(Arrays.asList("Bun", "Patty", "Onion", "Bun", "Patty", "Cheese", "Bun"));
-    MenuItem quarterPounder = new MenuItem("QuarterPounder", 18, quarterPounderRec);
-    
-    // Initializing AmericanBurger
-    ArrayList<String> veggieBurgerRec = new ArrayList<String>(Arrays.asList("Bun", "Cheese", "Lettuce", "Tomato", "Onion", "Bun"));
-    MenuItem veggieBurger = new MenuItem("VeggieBurger", 15, veggieBurgerRec);
-
-    // Initializing Salad
-    ArrayList<String> saladRec = new ArrayList<String>(Arrays.asList("Lettuce", "Tomato", "Onion"));
-    MenuItem salad = new MenuItem("Salad", 8, saladRec);
-
-    // Initializing Fries
-    ArrayList<String> friesRec = new ArrayList<String>(Arrays.asList("Fries"));
-    MenuItem fries = new MenuItem("Fries", 3, friesRec);
-
-    // Initializing LoadedFries
-    ArrayList<String> loadedFriesRec = new ArrayList<String>(Arrays.asList("Fries", "Patty", "Cheese"));
-    MenuItem loadedFries = new MenuItem("LoadedFries", 5, loadedFriesRec);
-
-    // Initializing IceCream
-    ArrayList<String> iceCreamRec = new ArrayList<String>(Arrays.asList("IceCream"));
-    MenuItem iceCream = new MenuItem("IceCream", 3, iceCreamRec);
-
-    // Initializing the Menu
-    ArrayList<MenuItem> menu = new ArrayList<MenuItem>(Arrays.asList(burger, cheeseBurger));
+    // New Menu menu
+    private Menu menu = new Menu();
 
     // Button bunButton
     JButton bunButton;
@@ -246,7 +210,7 @@ public class RestaurantPanel extends JPanel {
         gbc.gridy = 1; 
 
         // New restaurantImage
-        restaurantImage = new ImageIcon(getClass().getResource("RestaurantImage3.png"));
+        restaurantImage = new ImageIcon(getClass().getResource("Person1.png"));
         restaurantBackground = new JLabel(restaurantImage);
         add(restaurantBackground, gbc);
 
@@ -307,12 +271,13 @@ public class RestaurantPanel extends JPanel {
             if (event.getSource() == clearButton) {
                 playerOrder.trash();
                 playerText.setText("");
+                moneyLabel.setText(playerOrder.getPlayerMoney().toString());
             }
             // On submitButton click, check if playerOrder is correct, if so, move on, otherwise stay on current order
             if (event.getSource() == submitButton) {
                 playerText.setText("");
                 if (playerOrder.checkCorrect(custOrder.getCurrMenuItem())) {
-                    playerOrder.submit(custOrder, menu);
+                    playerOrder.submit(custOrder, menu.workingMenu);
                     moneyLabel.setText(playerOrder.getPlayerMoney().toString());
                     custText.setText("");
                     custText.append("Thank you!");
@@ -320,7 +285,7 @@ public class RestaurantPanel extends JPanel {
                 }
                 else {
                     custText.append("\n That's not what I ordered!");
-                    playerOrder.submit(custOrder, menu);
+                    playerOrder.submit(custOrder, menu.workingMenu);
                 }
             }
             // On recipeBook click, open recipeBook

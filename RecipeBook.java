@@ -8,8 +8,9 @@ import javax.swing.*;
  * Contains the dishes/ recipes able to be ordered/ created. 
  * 
  * @author Claire Grob, Hanna Halstead, and Jacqueline Poland
- * @version March 4, 2022
+ * @version April 18, 2022
  ************************************************************/
+
 public class RecipeBook {
     
     // New JFrame recipeBookFrame
@@ -22,13 +23,16 @@ public class RecipeBook {
     JTextField recipeBookText2 = new JTextField();
      
     RecipeBook() {
+        
+        //this is where menu/ recipe book png file will live
+        
         // setText of recipeBookText1
-        recipeBookText1.setText("Hamburger = [Bun, Patty, Bun]");
+        //recipeBookText1.setText("Hamburger = [Bun, Patty, Bun]");
 
         // setText of recipeBookText2
-        recipeBookText2.setText("Cheeseburger = [Bun, Patty, Cheese, Bun]");
+        //recipeBookText2.setText("Cheeseburger = [Bun, Patty, Cheese, Bun]");
 
-        recipeBookFrame.add(recipeBookText1);
+        //recipeBookFrame.add(recipeBookText1);
         recipeBookFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         recipeBookFrame.setSize(250, 250);
         recipeBookFrame.pack();

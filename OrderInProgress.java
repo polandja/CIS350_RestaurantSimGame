@@ -10,7 +10,7 @@ import java.util.*;
  * 
  * 
  * @author Claire Grob, Hanna Halstead, and Jacqueline Poland
- * @version March 4, 2022
+ * @version April 18, 2022
  ************************************************************/
 public class OrderInProgress {
 
@@ -57,7 +57,11 @@ public class OrderInProgress {
      * Trash removes all ingredients from the playerOrder.
      */
     public void trash() {
+        System.out.println("trash method called");
+        double munDeducted = this.getPlayerOrder().size() *3.00;
+        this.roundMoney = this.getPlayerMoney() - munDeducted;
         playerOrder.clear();
+        
     }
 
     /**
@@ -115,10 +119,7 @@ public class OrderInProgress {
             //     wrongAttempts = 0;
             // }
         }
-
-        //the player was incorrect:
-        this.trash();
-        // possible penalty goes here
+        this.getPlayerOrder().clear();
     }
 
 }

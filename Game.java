@@ -1,3 +1,12 @@
+/*
+ * Class Game of Restuarant Simulation Game
+ * <p>
+ * Plays the Restaurant Simulation Game.
+ * 
+ * @author Claire Grob, Hanna Halstead, and Jacqueline Poland
+ * @version April 18, 2022
+ **/
+
 public class Game {
     private double piggyBank;
 
