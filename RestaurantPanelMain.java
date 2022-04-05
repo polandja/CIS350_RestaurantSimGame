@@ -14,16 +14,21 @@ public class RestaurantPanelMain extends JPanel {
     
     // JMenuItem quitItem
     private JMenuItem quitItem;
+    private RestaurantPanel restaurantPanel = new RestaurantPanel();
 
     public RestaurantPanelMain (JMenuItem quitItem) {
         // Creating new JPanel panel
         JPanel panel = new JPanel();
-        panel.add(new RestaurantPanel());
+        panel.add(restaurantPanel);
         add(panel);
     
         this.quitItem = quitItem;
 
         quitItem.addActionListener(new MyListener());
+    }
+
+    public RestaurantPanel getPanel() {
+        return restaurantPanel;
     }
 
     private class MyListener implements ActionListener {

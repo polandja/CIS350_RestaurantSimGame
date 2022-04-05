@@ -1,6 +1,5 @@
 import java.util.*;
 import java.util.Timer;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -17,34 +16,6 @@ import java.awt.event.ActionListener;
  * @version March 4, 2022
  ************************************************************/
 public class RestaurantPanel extends JPanel {
-    
-    //New Round Counter
-    public int round = 0; 
-    public boolean passedRound = true; 
-
-    /*
-    public void metRoundEarningCheck(timer){
-        if (time= 0){
-            if (neededRoundEarnings >= playerRoundEarnings){
-                passedRound = true;
-                totalEarnings += playRoundEarnings; 
-                PlayerRoundEarnings = 0;
-            }
-            else{
-                passedRound = false;
-                playerRoundEarning = 0; 
-            }
-        }
-    }
-
-    public void beginNextRound(boolean passedRound, begin button action listener){
-        if begin clicked & passedRound = true
-            round++
-            start running game
-    }
-
-    */
-
     // New OrderInProgress playerOrder
     private OrderInProgress playerOrder = new OrderInProgress();
     
@@ -125,6 +96,7 @@ public class RestaurantPanel extends JPanel {
 
     JLabel restaurantBackground;
     JLabel moneyLabel;
+    // JLabel timerLabel = new JLabel();
 
     ImageIcon restaurantImage;
 
@@ -284,7 +256,7 @@ public class RestaurantPanel extends JPanel {
         gbc.gridy = 0;
 
         // New moneyLabel
-        moneyLabel = new JLabel("Round Earnings: 0.0");
+        moneyLabel = new JLabel("0.0");
         add(moneyLabel, gbc);
 
         // Adding actionListeners
@@ -341,7 +313,7 @@ public class RestaurantPanel extends JPanel {
                 playerText.setText("");
                 if (playerOrder.checkCorrect(custOrder.getCurrMenuItem())) {
                     playerOrder.submit(custOrder, menu);
-                    moneyLabel.setText("Round Earnings: " + playerOrder.getPlayerMoney().toString());
+                    moneyLabel.setText(playerOrder.getPlayerMoney().toString());
                     custText.setText("");
                     custText.append("Thank you!");
                     custText.append("\n Hi, can I get a " + custOrder.getCurrMenuItem().getName() + "?");
