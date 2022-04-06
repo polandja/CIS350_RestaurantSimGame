@@ -49,9 +49,6 @@ public class RestaurantPanel extends JPanel {
     // Button submitButton
     JButton submitButton;
 
-    // Button recipeBook
-    JButton recipeBook;
-
     // JTextArea customerText
     JTextArea custText;
 
@@ -167,18 +164,6 @@ public class RestaurantPanel extends JPanel {
         submitButton = new JButton("Submit");
         add(submitButton, gbc);
 
-        // Location of recipeBook
-        gbc.gridwidth = 1;
-        gbc.gridheight = 1;
-        gbc.gridx = 2;
-        gbc.gridy = 4;
-        gbc.ipadx = 20;
-        gbc.ipady = 20;
-
-        // New recipeBook
-        recipeBook = new JButton("Recipe Book");
-        add(recipeBook, gbc);
-
         // Location of custText
         gbc.gridwidth = 2;
         gbc.gridheight = 1;
@@ -232,7 +217,6 @@ public class RestaurantPanel extends JPanel {
         onionButton.addActionListener(new ButtonListener());
         clearButton.addActionListener(new ButtonListener());
         submitButton.addActionListener(new ButtonListener());
-        recipeBook.addActionListener(new ButtonListener());
     }
 
     private class ButtonListener implements ActionListener {
@@ -287,10 +271,6 @@ public class RestaurantPanel extends JPanel {
                     custText.append("\n That's not what I ordered!");
                     playerOrder.submit(custOrder, menu.workingMenu);
                 }
-            }
-            // On recipeBook click, open recipeBook
-            if (event.getSource() == recipeBook) {
-                RecipeBook recipeBookWindow = new RecipeBook();
             }
         }
     }

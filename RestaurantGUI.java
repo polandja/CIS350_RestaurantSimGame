@@ -23,6 +23,9 @@ public class RestaurantGUI extends RestaurantPanel {
         // JMenuItem helpItem
         JMenuItem helpItem;
 
+        // JMenuItem recipeBook
+        JMenuItem recipeBook;
+
         // JMenuBar menus
         JMenuBar menus;
 
@@ -40,6 +43,9 @@ public class RestaurantGUI extends RestaurantPanel {
         helpItem = new JMenuItem("Help");
         fileMenu.add(helpItem);
 
+        recipeBook = new JMenuItem("Recipe Book");
+        fileMenu.add(recipeBook);
+
         // New menus
         menus = new JMenuBar();
         menus.add(fileMenu);
@@ -53,7 +59,7 @@ public class RestaurantGUI extends RestaurantPanel {
         roundWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // New RestaurantPanelMain panel
-        RestaurantPanelMain panel = new RestaurantPanelMain(quitItem);
+        RestaurantPanelMain panel = new RestaurantPanelMain(quitItem, helpItem, recipeBook);
         gui.getContentPane().add(panel);
 
         /*
@@ -97,7 +103,7 @@ public class RestaurantGUI extends RestaurantPanel {
         // New JLabel roundCheck
         JLabel roundCheck = new JLabel();
         roundCheck.setText("");
-        roundCheck.setBounds(125, 50, 100, 25);
+        roundCheck.setBounds(75, 50, 125, 25);
 
         // New JLabel roundLabel
         JLabel roundLabel = new JLabel();
@@ -148,7 +154,7 @@ public class RestaurantGUI extends RestaurantPanel {
 
                 if (roundCounter[0] == 1) {
                     countdownTimer.scheduleAtFixedRate(new TimerTask() {
-                        int seconds = 20;
+                        int seconds = 120;
                         
                         public void run() {
                             timer.setText("Time Left: " + seconds);
@@ -159,7 +165,7 @@ public class RestaurantGUI extends RestaurantPanel {
                                 //countdownTimer.cancel();
                                 gui.setVisible(false);
 
-                                if (moneyEarned >= 20) {
+                                if (moneyEarned >= 120) {
                                     roundCounter[0] = 2;
                                     roundCheck.setText("You passed Round 1!");
                                     roundLabel.setText("Round 2");
@@ -168,13 +174,38 @@ public class RestaurantGUI extends RestaurantPanel {
                                 else {
                                     roundCheck.setText("You failed! Play again?");
                                     roundWindow.setVisible(true);
-                                    seconds = seconds + 21;
+                                    seconds = seconds + 121;
                                 }
                             }
                         }  
                     }, 0, 1000);
                 } else if (roundCounter[0] == 2) {
-                    System.out.println("We made it!");
+                    countdownTimer.scheduleAtFixedRate(new TimerTask() {
+                        int seconds = 110;
+
+                        @Override
+                        public void run() {
+                            timer.setText("Time Left: " + seconds);
+                            seconds--;
+
+                            if (seconds <= 0) {
+                                double moneyEarned = Double.parseDouble(panel.getPanel().moneyLabel.getText());
+                                gui.setVisible(false);
+
+                                if (moneyEarned >= 130) {
+                                    roundCounter[0] = 3;
+                                    roundCheck.setText("You passed Round 2!");
+                                    roundLabel.setText("Round 3");
+                                    roundWindow.setVisible(true);
+                                }
+                                else {
+                                    roundCheck.setText("You failed! Play again?");
+                                    roundWindow.setVisible(true);
+                                    seconds = seconds + 111;
+                                }
+                            }   
+                        }  
+                    }, 0, 1000);
                 }
             }
         });

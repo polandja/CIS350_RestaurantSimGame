@@ -15,17 +15,23 @@ public class RestaurantPanelMain extends JPanel {
     
     // JMenuItem quitItem
     private JMenuItem quitItem;
+    private JMenuItem helpItem;
+    private JMenuItem recipeBook;
     private RestaurantPanel restaurantPanel = new RestaurantPanel();
 
-    public RestaurantPanelMain (JMenuItem quitItem) {
+    public RestaurantPanelMain (JMenuItem quitItem, JMenuItem helpItem, JMenuItem recipeBook) {
         // Creating new JPanel panel
         JPanel panel = new JPanel();
         panel.add(restaurantPanel);
         add(panel);
     
         this.quitItem = quitItem;
+        this.helpItem = helpItem;
+        this.recipeBook = recipeBook;
 
         quitItem.addActionListener(new MyListener());
+        helpItem.addActionListener(new MyListener());
+        recipeBook.addActionListener(new MyListener());
     }
 
     public RestaurantPanel getPanel() {
@@ -37,6 +43,12 @@ public class RestaurantPanelMain extends JPanel {
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == quitItem) {
                 System.exit(1);
+            } 
+            else if (e.getSource() == helpItem) {
+                System.out.println("Help Button");
+            }
+            else if (e.getSource() == recipeBook) {
+                RecipeBook recipeBookWindow = new RecipeBook();
             }
         }
     }
