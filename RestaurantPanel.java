@@ -247,6 +247,8 @@ public class RestaurantPanel extends JPanel {
         lettuceButton.addActionListener(new ButtonListener());
         tomatoButton.addActionListener(new ButtonListener());
         onionButton.addActionListener(new ButtonListener());
+        friesButton.addActionListener(new ButtonListener());
+        iceCreamButton.addActionListener(new ButtonListener());
         clearButton.addActionListener(new ButtonListener());
         submitButton.addActionListener(new ButtonListener());
     }
@@ -307,16 +309,14 @@ public class RestaurantPanel extends JPanel {
                     moneyLabel.setText(playerOrder.getPlayerMoney().toString());
                     custText.setText("");
                     custText.append("Thank you!");
-                    //custText.append("\n Hi, can I get a " + custOrder.getCurrMenuItem().getName() + "?");
                     custText.append("\n#" + custOrder.getNumCust() + ": Hi, can I get a " + custOrder.getCurrMenuItem().getName() + "?");
                 }
                 else {
                     custText.append("\n That's not what I ordered!");
-                    System.out.println("Wrong Attempts:" +playerOrder.getWrongAttempts() );
-                    if(playerOrder.getWrongAttempts()>=2){
+                    System.out.println("Wrong Attempts:" + playerOrder.getWrongAttempts());
+                    if (playerOrder.getWrongAttempts()>=2) {
                         playerOrder.submit(custOrder, menu.workingMenu);
                         custText.append("\nI'm leaving.");
-                        //custText.setText("");
                         custText.append("\n#" + custOrder.getNumCust() + ": Hi, can I get a " + custOrder.getCurrMenuItem().getName() + "?");
                     }
                     else{

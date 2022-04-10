@@ -125,9 +125,6 @@ public class RestaurantGUI extends RestaurantPanel {
 
         ArrayList<MenuItem> menu = new ArrayList<>();
 
-        ArrayList<String> americanBurgerRec = new ArrayList<String>(Arrays.asList("Bun", "Patty", "Cheese", "Lettuce", "Tomato", "Bun"));
-        //MenuItem americanBurger = new MenuItem("AmericanBurger", 15, americanBurgerRec);
-
         // roundOne created
         Round roundOne = new Round(100, 75, menu);
 

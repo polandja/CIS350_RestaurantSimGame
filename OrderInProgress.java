@@ -62,7 +62,7 @@ public class OrderInProgress {
      */
     public void trash() {
         System.out.println("trash method called");
-        double munDeducted = this.getPlayerOrder().size() *3.00;
+        double munDeducted = this.getPlayerOrder().size() * 3.00;
         this.roundMoney = this.getPlayerMoney() - munDeducted;
         playerOrder.clear();
         
@@ -97,7 +97,6 @@ public class OrderInProgress {
         double customerPayment = 0;
         //the player was correct:
         if (this.checkCorrect(expected.getCurrMenuItem())) {
-            expected.nextOrder(inMenu);
             if(wrongAttempts==0){ //base pay + tip
             double tip = expected.getCurrMenuItem().calcTip();
             customerPayment = expected.getCurrMenuItem().getPrice() + tip;
@@ -114,6 +113,7 @@ public class OrderInProgress {
             System.out.println("Customer payed you: " + customerPayment);
             System.out.println(roundMoney);
             wrongAttempts = 0;
+            expected.nextOrder(inMenu);
         }
         else{ //the player was incorrect
             wrongAttempts ++;
