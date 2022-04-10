@@ -1,5 +1,7 @@
 import java.util.*;
 import java.util.Timer;
+import java.util.concurrent.TimeUnit;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -305,11 +307,22 @@ public class RestaurantPanel extends JPanel {
                     moneyLabel.setText(playerOrder.getPlayerMoney().toString());
                     custText.setText("");
                     custText.append("Thank you!");
-                    custText.append("\n Hi, can I get a " + custOrder.getCurrMenuItem().getName() + "?");
+                    //custText.append("\n Hi, can I get a " + custOrder.getCurrMenuItem().getName() + "?");
+                    custText.append("\n#" + custOrder.getNumCust() + ": Hi, can I get a " + custOrder.getCurrMenuItem().getName() + "?");
                 }
                 else {
                     custText.append("\n That's not what I ordered!");
-                    playerOrder.submit(custOrder, menu.workingMenu);
+                    System.out.println("Wrong Attempts:" +playerOrder.getWrongAttempts() );
+                    if(playerOrder.getWrongAttempts()>=2){
+                        playerOrder.submit(custOrder, menu.workingMenu);
+                        custText.append("\nI'm leaving.");
+                        //custText.setText("");
+                        custText.append("\n#" + custOrder.getNumCust() + ": Hi, can I get a " + custOrder.getCurrMenuItem().getName() + "?");
+                    }
+                    else{
+                        playerOrder.submit(custOrder, menu.workingMenu);
+                    }
+                    
                 }
             }
         }

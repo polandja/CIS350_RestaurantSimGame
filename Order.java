@@ -14,6 +14,7 @@ import java.util.*;
 public class Order {
     private ArrayList<String> custOrder;
     private MenuItem currMenuItem;
+    private int numCust = 1;
 
     /**
      * Constructor Order, makes a default order with a menuItem and recipe.
@@ -65,6 +66,14 @@ public class Order {
         this.currMenuItem = inItem;
     }
 
+    public int getNumCust(){
+        return numCust;
+    }
+
+    public void setNumCust(int num){
+        this.numCust = num;
+    }
+
     /**
      * Method nextOder, picks a random MenuItem from Menu and acceses the recipe.
      * Then it assigns that recipe to custOrder
@@ -76,6 +85,7 @@ public class Order {
         
         custOrder = inMenu.get(randIndex).getRecipe();
         currMenuItem = inMenu.get(randIndex);
+        numCust++;
     }
 }
 

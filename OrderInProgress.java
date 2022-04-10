@@ -44,6 +44,10 @@ public class OrderInProgress {
         return roundMoney;
     }
 
+    public int getWrongAttempts(){
+        return wrongAttempts;
+    }
+
     /**
      * AddIngredient puts ingredient selected by player into playerOrder.
      * 
@@ -114,10 +118,11 @@ public class OrderInProgress {
         else{ //the player was incorrect
             wrongAttempts ++;
             //if they submit the order incorrectly 3 times, the next customer appears and the player gets no money
-            // if(wrongAttempts >= 2){ 
-            //     expected.nextOrder(inMenu);
-            //     wrongAttempts = 0;
-            // }
+            if(wrongAttempts >= 3){ 
+                expected.nextOrder(inMenu);
+                wrongAttempts = 0;
+                System.out.println("Customer Left!");
+            }
         }
         this.getPlayerOrder().clear();
     }
