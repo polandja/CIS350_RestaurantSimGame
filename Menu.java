@@ -51,5 +51,4 @@ public class Menu {
     // Initializing the Menu
     //This is round depedent
     ArrayList<MenuItem> workingMenu = new ArrayList<MenuItem>(Arrays.asList(burger, cheeseBurger));
-
 }

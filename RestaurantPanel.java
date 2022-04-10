@@ -43,6 +43,12 @@ public class RestaurantPanel extends JPanel {
     // Button onionButton
     JButton onionButton;
 
+    // Button friesButton
+    JButton friesButton;
+
+    // Button iceCreamButton
+    JButton iceCreamButton;
+
     // Button clearButton
     JButton clearButton;
 
@@ -140,10 +146,34 @@ public class RestaurantPanel extends JPanel {
         onionButton = new JButton("Onion");
         add(onionButton, gbc);
 
-        // Location of clearButton
+        // Location of friesButton
         gbc.gridwidth = 1;
         gbc.gridheight = 1;
         gbc.gridx = 0;
+        gbc.gridy = 4;
+        gbc.ipadx = 20;
+        gbc.ipady = 20;
+
+        // New friesButton
+        friesButton = new JButton("Fries");
+        add(friesButton, gbc);
+
+        // Location of iceCreamButton
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        gbc.gridx = 1;
+        gbc.gridy = 4;
+        gbc.ipadx = 20;
+        gbc.ipady = 20;
+
+        // New iceCreamButton
+        iceCreamButton = new JButton("Ice Cream");
+        add(iceCreamButton, gbc);
+
+        // Location of clearButton
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        gbc.gridx = 2;
         gbc.gridy = 4;
         gbc.ipadx = 20;
         gbc.ipady = 20;        
@@ -156,7 +186,7 @@ public class RestaurantPanel extends JPanel {
         gbc.gridwidth = 1;
         gbc.gridheight = 1;
         gbc.gridx = 1;
-        gbc.gridy = 4;
+        gbc.gridy = 5;
         gbc.ipadx = 20;
         gbc.ipady = 20;
 
@@ -250,6 +280,16 @@ public class RestaurantPanel extends JPanel {
             if (event.getSource() == onionButton) {
                 playerOrder.addIngredient("Onion");
                 playerText.append("Onion ");
+            }
+            // On friesButton click, add to addIngredient and playerText
+            if (event.getSource() == friesButton) {
+                playerOrder.addIngredient("Fries");
+                playerText.append("Fries ");
+            }
+            // On iceCreamButton click, add to addIngredient and playerText
+            if (event.getSource() == iceCreamButton) {
+                playerOrder.addIngredient("IceCream");
+                playerText.append("Ice Cream ");
             }
             // On clearButton click, call trash and clear playerText
             if (event.getSource() == clearButton) {

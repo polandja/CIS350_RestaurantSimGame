@@ -103,7 +103,7 @@ public class RestaurantGUI extends RestaurantPanel {
         // New JLabel roundCheck
         JLabel roundCheck = new JLabel();
         roundCheck.setText("");
-        roundCheck.setBounds(75, 50, 125, 25);
+        roundCheck.setBounds(60, 50, 150, 25);
 
         // New JLabel roundLabel
         JLabel roundLabel = new JLabel();
@@ -122,7 +122,30 @@ public class RestaurantGUI extends RestaurantPanel {
 
         // New JButton startButton
         JButton startButton = new JButton("Start");
-        
+
+        ArrayList<MenuItem> menu = new ArrayList<>();
+
+        ArrayList<String> americanBurgerRec = new ArrayList<String>(Arrays.asList("Bun", "Patty", "Cheese", "Lettuce", "Tomato", "Bun"));
+        //MenuItem americanBurger = new MenuItem("AmericanBurger", 15, americanBurgerRec);
+
+        // roundOne created
+        Round roundOne = new Round(100, 75, menu);
+
+        // roundTwo created
+        Round roundTwo = new Round(120, 65, menu);
+
+        // roundThree created
+        Round roundThree = new Round(140, 55, menu);
+
+        // roundFour created
+        Round roundFour = new Round(160, 50, menu);
+
+        // roundFive created
+        Round roundFive = new Round(180, 45, menu);
+
+        // roundFinal created
+        Round roundFinal = new Round(200, 40, menu);
+
         // roundWindow created
         roundWindow.add(roundLabel);
         roundWindow.add(roundCheck);
@@ -154,7 +177,7 @@ public class RestaurantGUI extends RestaurantPanel {
 
                 if (roundCounter[0] == 1) {
                     countdownTimer.scheduleAtFixedRate(new TimerTask() {
-                        int seconds = 120;
+                        int seconds = roundOne.getTimeLimit();
                         
                         public void run() {
                             timer.setText("Time Left: " + seconds);
@@ -162,10 +185,9 @@ public class RestaurantGUI extends RestaurantPanel {
             
                             if (seconds <= 0) {
                                 double moneyEarned = Double.parseDouble(panel.getPanel().moneyLabel.getText());
-                                //countdownTimer.cancel();
                                 gui.setVisible(false);
 
-                                if (moneyEarned >= 120) {
+                                if (moneyEarned >= roundOne.getCashGoal()) {
                                     roundCounter[0] = 2;
                                     roundCheck.setText("You passed Round 1!");
                                     roundLabel.setText("Round 2");
@@ -174,14 +196,14 @@ public class RestaurantGUI extends RestaurantPanel {
                                 else {
                                     roundCheck.setText("You failed! Play again?");
                                     roundWindow.setVisible(true);
-                                    seconds = seconds + 121;
+                                    seconds = seconds + 76;
                                 }
                             }
                         }  
                     }, 0, 1000);
                 } else if (roundCounter[0] == 2) {
                     countdownTimer.scheduleAtFixedRate(new TimerTask() {
-                        int seconds = 110;
+                        int seconds = roundTwo.getTimeLimit();
 
                         @Override
                         public void run() {
@@ -192,7 +214,7 @@ public class RestaurantGUI extends RestaurantPanel {
                                 double moneyEarned = Double.parseDouble(panel.getPanel().moneyLabel.getText());
                                 gui.setVisible(false);
 
-                                if (moneyEarned >= 130) {
+                                if (moneyEarned >= roundTwo.getCashGoal()) {
                                     roundCounter[0] = 3;
                                     roundCheck.setText("You passed Round 2!");
                                     roundLabel.setText("Round 3");
@@ -201,12 +223,125 @@ public class RestaurantGUI extends RestaurantPanel {
                                 else {
                                     roundCheck.setText("You failed! Play again?");
                                     roundWindow.setVisible(true);
-                                    seconds = seconds + 111;
+                                    seconds = seconds + 66;
                                 }
                             }   
                         }  
                     }, 0, 1000);
                 }
+                else if (roundCounter[0] == 3) {
+                    countdownTimer.scheduleAtFixedRate(new TimerTask() {
+                        int seconds = roundThree.getTimeLimit();
+
+                        @Override
+                        public void run() {
+                            timer.setText("Time Left: " + seconds);
+                            seconds--;
+
+                            if (seconds <= 0) {
+                                double moneyEarned = Double.parseDouble(panel.getPanel().moneyLabel.getText());
+                                gui.setVisible(false);
+
+                                if (moneyEarned >= roundThree.getCashGoal()) {
+                                    roundCounter[0] = 4;
+                                    roundCheck.setText("You passed Round 3!");
+                                    roundLabel.setText("Round 4");
+                                    roundWindow.setVisible(true);
+                                }
+                                else {
+                                    roundCheck.setText("You failed! Play again?");
+                                    roundWindow.setVisible(true);
+                                    seconds = seconds + 56;
+                                }
+                            }   
+                        }  
+                    }, 0, 1000);
+                }
+                else if (roundCounter[0] == 4) {
+                    countdownTimer.scheduleAtFixedRate(new TimerTask() {
+                        int seconds = roundFour.getTimeLimit();
+
+                        @Override
+                        public void run() {
+                            timer.setText("Time Left: " + seconds);
+                            seconds--;
+
+                            if (seconds <= 0) {
+                                double moneyEarned = Double.parseDouble(panel.getPanel().moneyLabel.getText());
+                                gui.setVisible(false);
+
+                                if (moneyEarned >= roundFour.getCashGoal()) {
+                                    roundCounter[0] = 5;
+                                    roundCheck.setText("You passed Round 4!");
+                                    roundLabel.setText("Round 5");
+                                    roundWindow.setVisible(true);
+                                }
+                                else {
+                                    roundCheck.setText("You failed! Play again?");
+                                    roundWindow.setVisible(true);
+                                    seconds = seconds + 51;
+                                }
+                            }   
+                        }  
+                    }, 0, 1000);
+                }
+                else if (roundCounter[0] == 5) {
+                    countdownTimer.scheduleAtFixedRate(new TimerTask() {
+                        int seconds = roundFive.getTimeLimit();
+
+                        @Override
+                        public void run() {
+                            timer.setText("Time Left: " + seconds);
+                            seconds--;
+
+                            if (seconds <= 0) {
+                                double moneyEarned = Double.parseDouble(panel.getPanel().moneyLabel.getText());
+                                gui.setVisible(false);
+
+                                if (moneyEarned >= roundFive.getCashGoal()) {
+                                    roundCounter[0] = 6;
+                                    roundCheck.setText("You passed Round 5!");
+                                    roundLabel.setText("Final Round");
+                                    roundWindow.setVisible(true);
+                                }
+                                else {
+                                    roundCheck.setText("You failed! Play again?");
+                                    roundWindow.setVisible(true);
+                                    seconds = seconds + 46;
+                                }
+                            }   
+                        }  
+                    }, 0, 1000);
+                }
+                else if (roundCounter[0] == 6) {
+                    countdownTimer.scheduleAtFixedRate(new TimerTask() {
+                        int seconds = roundFinal.getTimeLimit();
+
+                        @Override
+                        public void run() {
+                            timer.setText("Time Left: " + seconds);
+                            seconds--;
+
+                            if (seconds <= 0) {
+                                double moneyEarned = Double.parseDouble(panel.getPanel().moneyLabel.getText());
+                                gui.setVisible(false);
+
+                                if (moneyEarned >= roundFinal.getCashGoal()) {
+                                    roundCounter[0] = 7;
+                                    roundCheck.setText("You beat the game!");
+                                    roundLabel.setText("");
+                                    roundWindow.setVisible(true);
+                                }
+                                else {
+                                    roundCheck.setText("You failed! Play again?");
+                                    roundWindow.setVisible(true);
+                                    seconds = seconds + 41;
+                                }
+                            }   
+                        }  
+                    }, 0, 1000);
+                }
+                
             }
         });
     }
