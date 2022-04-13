@@ -1,6 +1,4 @@
 import java.util.*;
-import java.util.Timer;
-import java.util.concurrent.TimeUnit;
 import java.text.DecimalFormat;
 
 import javax.swing.*;
@@ -69,7 +67,7 @@ public class RestaurantPanel extends JPanel {
 
     JLabel restaurantBackground;
     JLabel moneyLabel;
-    // JLabel timerLabel = new JLabel();
+    JLabel counterLabel;
 
     ImageIcon restaurantImage;
 
@@ -244,6 +242,9 @@ public class RestaurantPanel extends JPanel {
         moneyLabel = new JLabel("0.0");
         add(moneyLabel, gbc);
 
+        // New counterLabel
+        counterLabel = new JLabel("1");
+
         // Adding actionListeners
         bunButton.addActionListener(new ButtonListener());
         pattyButton.addActionListener(new ButtonListener());
@@ -303,14 +304,14 @@ public class RestaurantPanel extends JPanel {
             if (event.getSource() == clearButton) {
                 playerOrder.trash();
                 playerText.setText("");
-                moneyLabel.setText("$: " + df.format(playerOrder.getPlayerMoney()));
+                moneyLabel.setText(df.format(playerOrder.getPlayerMoney()));
             }
             // On submitButton click, check if playerOrder is correct, if so, move on, otherwise stay on current order
             if (event.getSource() == submitButton) {
                 playerText.setText("");
                 if (playerOrder.checkCorrect(custOrder.getCurrMenuItem())) {
                     playerOrder.submit(custOrder, menu.workingMenu);
-                    moneyLabel.setText("$: " + df.format(playerOrder.getPlayerMoney()));
+                    moneyLabel.setText(df.format(playerOrder.getPlayerMoney()));
                     custText.setText("");
                     custText.append("Thank you!");
                     custText.append("\nCustomer #" + custOrder.getNumCust() + ": Hi, can I get a " + custOrder.getCurrMenuItem().getName() + "?");
@@ -329,6 +330,12 @@ public class RestaurantPanel extends JPanel {
                     }
                     
                 }
+            }
+
+            //check if it contains americanBurger
+            if (counterLabel.getText().equals("2") && !menu.workingMenu.contains(menu.americanBurger)) {
+                menu.workingMenu.add(menu.americanBurger);
+                System.out.println("Made it over here!");      
             }
         }
     }

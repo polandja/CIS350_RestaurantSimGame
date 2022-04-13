@@ -283,6 +283,7 @@ public class RestaurantGUI extends RestaurantPanel {
                 // roundWindow2 disappears
                 roundWindow2.setVisible(false);
                 roundWindow2.dispose();
+                panel2.getPanel().counterLabel.setText("2");
 
                 // gui created
                 gui2.pack();
@@ -603,6 +604,7 @@ public class RestaurantGUI extends RestaurantPanel {
                 if (roundCounter[0] == 7) {
                     roundWindow7.dispose();
                     System.exit(0);
+                    //Menu.workingMenu.add(menu.americanBurger);
                 }
             }
         });

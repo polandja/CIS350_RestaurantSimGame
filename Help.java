@@ -27,6 +27,5 @@ public class Help {
         helpFrame.pack();
         helpFrame.setLayout(null);
         helpFrame.setVisible(true);
-    }
-    
+    }   
 }
