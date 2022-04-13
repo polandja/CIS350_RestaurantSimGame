@@ -22,7 +22,7 @@ public class Help {
 
         helpText.setEditable(false);
         helpFrame.add(helpText);
-        helpFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        helpFrame.setDefaultCloseOperation(helpFrame.DISPOSE_ON_CLOSE);
         helpFrame.setSize(250, 250);
         helpFrame.pack();
         helpFrame.setLayout(null);
