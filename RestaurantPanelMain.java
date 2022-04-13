@@ -45,7 +45,7 @@ public class RestaurantPanelMain extends JPanel {
                 System.exit(1);
             } 
             else if (e.getSource() == helpItem) {
-                Help helpWindow = new Help();
+                //Help helpWindow = new Help();
             }
             else if (e.getSource() == recipeBook) {
                 RecipeBook recipeBookWindow = new RecipeBook();

@@ -100,11 +100,13 @@ public class OrderInProgress {
             if(wrongAttempts==0){ //base pay + tip
             double tip = expected.getCurrMenuItem().calcTip();
             customerPayment = expected.getCurrMenuItem().getPrice() + tip;
-            roundMoney += expected.getCurrMenuItem().getPrice() + tip;
+            double money = expected.getCurrMenuItem().getPrice() + tip;
+            roundMoney += money;
             }
             if(wrongAttempts==1){ //base pay, no tip
                 customerPayment = expected.getCurrMenuItem().getPrice();
                 roundMoney += expected.getCurrMenuItem().getPrice();
+                
             }
             if(wrongAttempts>=2){ // no money, no penalty
                 customerPayment = 0;

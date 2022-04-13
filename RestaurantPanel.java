@@ -1,6 +1,7 @@
 import java.util.*;
 import java.util.Timer;
 import java.util.concurrent.TimeUnit;
+import java.text.DecimalFormat;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,6 +27,9 @@ public class RestaurantPanel extends JPanel {
 
     // New Menu menu
     private Menu menu = new Menu();
+
+    //decimal format
+    private static final DecimalFormat df = new DecimalFormat("0.00");
 
     // Button bunButton
     JButton bunButton;
@@ -299,25 +303,26 @@ public class RestaurantPanel extends JPanel {
             if (event.getSource() == clearButton) {
                 playerOrder.trash();
                 playerText.setText("");
-                moneyLabel.setText(playerOrder.getPlayerMoney().toString());
+                moneyLabel.setText("$: " + df.format(playerOrder.getPlayerMoney()));
             }
             // On submitButton click, check if playerOrder is correct, if so, move on, otherwise stay on current order
             if (event.getSource() == submitButton) {
                 playerText.setText("");
                 if (playerOrder.checkCorrect(custOrder.getCurrMenuItem())) {
                     playerOrder.submit(custOrder, menu.workingMenu);
-                    moneyLabel.setText(playerOrder.getPlayerMoney().toString());
+                    moneyLabel.setText("$: " + df.format(playerOrder.getPlayerMoney()));
                     custText.setText("");
                     custText.append("Thank you!");
-                    custText.append("\n#" + custOrder.getNumCust() + ": Hi, can I get a " + custOrder.getCurrMenuItem().getName() + "?");
+                    custText.append("\nCustomer #" + custOrder.getNumCust() + ": Hi, can I get a " + custOrder.getCurrMenuItem().getName() + "?");
                 }
                 else {
                     custText.append("\n That's not what I ordered!");
                     System.out.println("Wrong Attempts:" + playerOrder.getWrongAttempts());
                     if (playerOrder.getWrongAttempts()>=2) {
                         playerOrder.submit(custOrder, menu.workingMenu);
+                        custText.setText("");
                         custText.append("\nI'm leaving.");
-                        custText.append("\n#" + custOrder.getNumCust() + ": Hi, can I get a " + custOrder.getCurrMenuItem().getName() + "?");
+                        custText.append("\nCustomer #" + custOrder.getNumCust() + ": Hi, can I get a " + custOrder.getCurrMenuItem().getName() + "?");
                     }
                     else{
                         playerOrder.submit(custOrder, menu.workingMenu);
