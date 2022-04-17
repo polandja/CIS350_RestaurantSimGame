@@ -20,6 +20,20 @@ public class Round {
         this.cashGoal = inCashGoal;
         this.timeLimit = inTimeLimit;
         this.newMenuItems = inMenuItems;
+
+        ArrayList<String> burgerRec = new ArrayList<>(Arrays.asList("bun", "patty", "bun"));
+        MenuItem burger = new MenuItem("burger", 10, burgerRec);
+        ArrayList<String> cheeseBurgerRec = new ArrayList<>(Arrays.asList("bun", "patty", "cheese", "bun"));
+        MenuItem cheeseBurger = new MenuItem("cheeseBurger", 12, cheeseBurgerRec);
+        ArrayList<MenuItem> menu = new ArrayList<>(Arrays.asList(burger, cheeseBurger));
+
+        this.newMenuItems = menu;
+    }
+
+    //default constructor
+    public Round(){
+        this.cashGoal = 50.0;
+        this.timeLimit = 30;
     }
 
     public int getRoundNum(){
