@@ -1,4 +1,3 @@
-import java.util.*;
 import java.text.DecimalFormat;
 
 import javax.swing.*;
@@ -239,7 +238,7 @@ public class RestaurantPanel extends JPanel {
         gbc.gridy = 0;
 
         // New moneyLabel
-        moneyLabel = new JLabel("0.0");
+        moneyLabel = new JLabel("Money Earned: $0.0");
         add(moneyLabel, gbc);
 
         // New counterLabel
@@ -304,14 +303,14 @@ public class RestaurantPanel extends JPanel {
             if (event.getSource() == clearButton) {
                 playerOrder.trash();
                 playerText.setText("");
-                moneyLabel.setText(df.format(playerOrder.getPlayerMoney()));
+                moneyLabel.setText("Money Earned: $" + df.format(playerOrder.getPlayerMoney()));
             }
             // On submitButton click, check if playerOrder is correct, if so, move on, otherwise stay on current order
             if (event.getSource() == submitButton) {
                 playerText.setText("");
                 if (playerOrder.checkCorrect(custOrder.getCurrMenuItem())) {
                     playerOrder.submit(custOrder, menu.workingMenu);
-                    moneyLabel.setText(df.format(playerOrder.getPlayerMoney()));
+                    moneyLabel.setText("Money Earned: $" + df.format(playerOrder.getPlayerMoney()));
                     custText.setText("");
                     custText.append("Thank you!");
                     custText.append("\nCustomer #" + custOrder.getNumCust() + ": Hi, can I get a " + custOrder.getCurrMenuItem().getName() + "?");
