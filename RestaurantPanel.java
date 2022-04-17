@@ -332,10 +332,41 @@ public class RestaurantPanel extends JPanel {
                 }
             }
 
-            //check if it contains americanBurger
+            // check if menu contains americanBurger
             if (counterLabel.getText().equals("2") && !menu.workingMenu.contains(menu.americanBurger)) {
                 menu.workingMenu.add(menu.americanBurger);
-                System.out.println("Made it over here!");      
+                System.out.println("Round 2:" + menu.workingMenu);
+            }
+
+            // check if menu contains quarterPounder
+            if (counterLabel.getText().equals("3") && !menu.workingMenu.contains(menu.quarterPounder)) {
+                menu.workingMenu.add(menu.americanBurger);
+                menu.workingMenu.add(menu.quarterPounder);
+                System.out.println("Round 3:" + menu.workingMenu);
+            }
+
+            // check if menu contains veggieBurger
+            if (counterLabel.getText().equals("4") && !menu.workingMenu.contains(menu.veggieBurger)) {
+                menu.workingMenu.add(menu.americanBurger);
+                menu.workingMenu.add(menu.quarterPounder);
+                menu.workingMenu.add(menu.veggieBurger);
+                System.out.println("Round 4:" + menu.workingMenu);
+            }
+
+            // check if menu contains loadedFries
+            if (counterLabel.getText().equals("5") && !menu.workingMenu.contains(menu.loadedFries)) {
+                menu.workingMenu.add(menu.americanBurger);
+                menu.workingMenu.add(menu.quarterPounder);
+                menu.workingMenu.add(menu.veggieBurger);
+                menu.workingMenu.add(menu.loadedFries);
+            }
+
+            // check if menu contains salad
+            if (counterLabel.getText().equals("6") && !menu.workingMenu.contains(menu.salad)) {
+                menu.workingMenu.add(menu.americanBurger);
+                menu.workingMenu.add(menu.quarterPounder);
+                menu.workingMenu.add(menu.veggieBurger);
+                menu.workingMenu.add(menu.salad);
             }
         }
     }

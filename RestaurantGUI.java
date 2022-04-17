@@ -178,22 +178,22 @@ public class RestaurantGUI extends RestaurantPanel {
         ArrayList<MenuItem> menu = new ArrayList<>();
 
         // roundOne created
-        Round roundOne = new Round(20, 20, menu);
+        Round roundOne = new Round(100, 45, menu);
 
         // roundTwo created
-        Round roundTwo = new Round(120, 65, menu);
+        Round roundTwo = new Round(125, 60, menu);
 
         // roundThree created
-        Round roundThree = new Round(140, 55, menu);
+        Round roundThree = new Round(150, 75, menu);
 
         // roundFour created
-        Round roundFour = new Round(160, 50, menu);
+        Round roundFour = new Round(175, 90, menu);
 
         // roundFive created
-        Round roundFive = new Round(180, 45, menu);
+        Round roundFive = new Round(200, 105, menu);
 
         // roundFinal created
-        Round roundFinal = new Round(200, 40, menu);
+        Round roundFinal = new Round(250, 120, menu);
 
         // roundWindow created
         roundWindow.add(roundLabel);
@@ -232,7 +232,7 @@ public class RestaurantGUI extends RestaurantPanel {
                     gui.setVisible(true);
 
                     countdownTimer1.scheduleAtFixedRate(new TimerTask() {
-                        int seconds = roundOne.getTimeLimit();
+                        int seconds = 20;
                         
                         public void run() {
                             timer1.setText("Time Left: " + seconds);
@@ -243,7 +243,7 @@ public class RestaurantGUI extends RestaurantPanel {
                                 gui.setVisible(false);
 
                                 // check if moneyEarned satisfies roundOne conditions
-                                if (moneyEarned >= roundOne.getCashGoal() && roundCounter[0] == 1) {
+                                if (moneyEarned >= 20 && roundCounter[0] == 1) {
                                     roundCheck.setText("You passed Round 1!");
                                     roundLabel.setText("Round 2");
                                     roundCounter[0] = 2;
@@ -266,9 +266,10 @@ public class RestaurantGUI extends RestaurantPanel {
                                     // JButton bounds set
                                     startButton2.setBounds(70, 100, 100, 25);
                                 }
-                                else if (moneyEarned < roundOne.getCashGoal()) {
+                                else if (moneyEarned < 20) {
                                     roundCheck.setText("You failed! Play again?");
                                     roundWindow.setVisible(true);
+                                    panel.getPanel().moneyLabel.setText("0.0");
                                     seconds = seconds + 76;
                                 }
                             }
@@ -333,8 +334,9 @@ public class RestaurantGUI extends RestaurantPanel {
                                 startButton3.setBounds(70, 100, 100, 25);
                             }
                             else if (moneyEarned < 20) {
-                                roundCheck.setText("You failed Round 2! Play again?");
+                                roundCheck.setText("You failed! Play again?");
                                 roundWindow2.setVisible(true);
+                                panel2.getPanel().moneyLabel.setText("0.0");
                                 seconds = seconds + 66;
                             }
                         }   
@@ -348,6 +350,7 @@ public class RestaurantGUI extends RestaurantPanel {
                 // roundWindow3 disappears
                 roundWindow3.setVisible(false);
                 roundWindow3.dispose();
+                panel3.getPanel().counterLabel.setText("3");
 
                 // gui created
                 gui3.pack();
@@ -397,8 +400,9 @@ public class RestaurantGUI extends RestaurantPanel {
                                 startButton4.setBounds(70, 100, 100, 25);
                             }
                             else if (moneyEarned < 5) {
-                                roundCheck.setText("You failed Round 3! Play again?");
+                                roundCheck.setText("You failed! Play again?");
                                 roundWindow3.setVisible(true);
+                                panel3.getPanel().moneyLabel.setText("0.0");
                                 seconds = seconds + 56;
                             }
                         }   
@@ -412,6 +416,7 @@ public class RestaurantGUI extends RestaurantPanel {
                 // roundWindow3 disappears
                 roundWindow4.setVisible(false);
                 roundWindow4.dispose();
+                panel4.getPanel().counterLabel.setText("4");
 
                 // gui created
                 gui4.pack();
@@ -461,8 +466,9 @@ public class RestaurantGUI extends RestaurantPanel {
                                 startButton5.setBounds(70, 100, 100, 25);
                             }
                             else if (moneyEarned < 5) {
-                                roundCheck.setText("You failed Round 4! Play again?");
+                                roundCheck.setText("You failed! Play again?");
                                 roundWindow4.setVisible(true);
+                                panel4.getPanel().moneyLabel.setText("0.0");
                                 seconds = seconds + 51;
                             }
                         }   
@@ -476,6 +482,7 @@ public class RestaurantGUI extends RestaurantPanel {
                 // roundWindow5 disappears
                 roundWindow5.setVisible(false);
                 roundWindow5.dispose();
+                panel5.getPanel().counterLabel.setText("5");
 
                 // gui created
                 gui5.pack();
@@ -525,8 +532,9 @@ public class RestaurantGUI extends RestaurantPanel {
                                 startButton6.setBounds(70, 100, 100, 25);
                             }
                             else if (moneyEarned < 5) {
-                                roundCheck.setText("You failed Round 5! Play again?");
+                                roundCheck.setText("You failed! Play again?");
                                 roundWindow5.setVisible(true);
+                                panel5.getPanel().moneyLabel.setText("0.0");
                                 seconds = seconds + 40;
                             }
                         }   
@@ -540,6 +548,7 @@ public class RestaurantGUI extends RestaurantPanel {
                 // roundWindow6 disappears
                 roundWindow6.setVisible(false);
                 roundWindow6.dispose();
+                panel6.getPanel().counterLabel.setText("6");
 
                 // gui created
                 gui6.pack();
@@ -589,8 +598,9 @@ public class RestaurantGUI extends RestaurantPanel {
                                 finishButton.setBounds(70, 100, 100, 25);
                             }
                             else if (moneyEarned < 5) {
-                                roundCheck.setText("You failed the Final Round! Play again?");
+                                roundCheck.setText("You failed! Play again?");
                                 roundWindow6.setVisible(true);
+                                panel6.getPanel().moneyLabel.setText("0.0");
                                 seconds = seconds + 30;
                             }
                         }   
@@ -604,7 +614,6 @@ public class RestaurantGUI extends RestaurantPanel {
                 if (roundCounter[0] == 7) {
                     roundWindow7.dispose();
                     System.exit(0);
-                    //Menu.workingMenu.add(menu.americanBurger);
                 }
             }
         });
