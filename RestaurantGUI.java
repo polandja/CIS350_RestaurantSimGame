@@ -146,13 +146,13 @@ public class RestaurantGUI extends RestaurantPanel {
 
         // New JLabel timeLabel
         JLabel timeLabel = new JLabel();
-        timeLabel.setText("Time: ");
-        timeLabel.setBounds(50, 80, 50, 50);
+        timeLabel.setText("Time: 45");
+        timeLabel.setBounds(25, 25, 50, 50);
 
         // New JLabel moneyGoalLabel
         JLabel moneyGoalLabel = new JLabel();
-        moneyGoalLabel.setText("Goal: $");
-        moneyGoalLabel.setBounds(50, 110, 50, 50);
+        moneyGoalLabel.setText("Goal: $100");
+        moneyGoalLabel.setBounds(100, 25, 100, 50);
 
         // New JButton startButton1
         JButton startButton1 = new JButton("Start");
@@ -196,6 +196,8 @@ public class RestaurantGUI extends RestaurantPanel {
         Round roundFinal = new Round(250, 120, menu);
 
         // roundWindow created
+        roundWindow.add(moneyGoalLabel);
+        roundWindow.add(timeLabel);
         roundWindow.add(roundLabel);
         roundWindow.add(roundCheck);
         roundWindow.add(startButton1);
