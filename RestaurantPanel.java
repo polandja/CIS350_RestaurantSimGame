@@ -1,5 +1,5 @@
 import java.text.DecimalFormat;
-
+import java.util.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -228,7 +228,9 @@ public class RestaurantPanel extends JPanel {
         gbc.gridy = 1; 
 
         // New restaurantImage
-        restaurantImage = new ImageIcon(getClass().getResource("Person1.png"));
+        Random rand = new Random();
+        int randomNum = rand.nextInt((5 - 1) + 1) + 1;
+        restaurantImage = new ImageIcon(getClass().getResource("Person"+ randomNum +".png"));
         restaurantBackground = new JLabel(restaurantImage);
         add(restaurantBackground, gbc);
 
@@ -314,6 +316,11 @@ public class RestaurantPanel extends JPanel {
                     custText.setText("");
                     custText.append("Thank you!");
                     custText.append("\nCustomer #" + custOrder.getNumCust() + ": Hi, can I get a " + custOrder.getCurrMenuItem().getName() + "?");
+                    // New restaurantImage
+                    Random rand = new Random();
+                    int randomNum = rand.nextInt((5 - 1) + 1) + 1;
+                    restaurantImage = new ImageIcon(getClass().getResource("Person"+ randomNum +".png"));
+                    restaurantBackground = new JLabel(restaurantImage);
                 }
                 else {
                     custText.append("\n That's not what I ordered!");
@@ -326,6 +333,11 @@ public class RestaurantPanel extends JPanel {
                     }
                     else{
                         playerOrder.submit(custOrder, menu.workingMenu);
+                        // New restaurantImage
+                        Random rand = new Random();
+                        int randomNum = rand.nextInt((5 - 1) + 1) + 1;
+                        restaurantImage = new ImageIcon(getClass().getResource("Person"+ randomNum +".png"));
+                        restaurantBackground = new JLabel(restaurantImage);
                     }
                     
                 }
